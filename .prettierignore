@@ -1,0 +1,5 @@
+node_modules
+.next
+pnpm-lock.yaml
+docs/PRD.md
+docs/adr/001-stacks.md

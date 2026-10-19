@@ -1,7 +1,7 @@
-# Stack — base para o ADR-001 (turma B)
+# ADR-001 — Stack da aplicação
 
-Documento de trabalho. Serve de insumo para `docs/adr/001-stack.md`.
-Cada item tem escolha e uma linha de justificativa, no formato que o ADR espera.
+Este arquivo registra as decisões arquiteturais do ADR-001 e é a fonte de
+verdade em `docs/adr/001-stacks.md`.
 
 ---
 
@@ -170,7 +170,7 @@ Cada item tem escolha e uma linha de justificativa, no formato que o ADR espera.
 - **Vitest único** — já era a decisão; mantida. Com um projeto só, um runner só cobre servidor e tela, com a mesma config do build.
 - **Testcontainers com Postgres real** — mockar o Prisma testa o mock, não o banco. Constraint, cascade, transação e policy de RLS só falham contra Postgres de verdade.
 - **`createCaller`** — testa o procedimento com contexto montado à mão, incluindo middleware de sessão e tenant, sem subir servidor HTTP.
-- **Playwright** — os fluxos que travam a operação (login, abertura de chamado, cadastro de ativo) precisam ser testados no navegador.
+- **Playwright** — os fluxos que travam a operação (login, solicitação e devolução de equipamento, empréstimos em aberto) precisam ser testados no navegador.
 - **Teste de isolamento por procedimento** — vazamento entre tenants é a falha mais cara desse sistema e a mais fácil de introduzir sem perceber; precisa ser verificada por teste, não por revisão.
 - **Sem meta de percentual** — meta de cobertura produz teste escrito para subir número; caminho crítico é critério verificável.
 
@@ -196,7 +196,7 @@ Cada item tem escolha e uma linha de justificativa, no formato que o ADR espera.
 - **Plano Hobby** — o Hobby cobre uso pessoal não-comercial, que é o caso: projeto de disciplina, sem cobrança e sem ninguém sendo pago para escrever o código. Se o sistema sair do contexto acadêmico, o plano precisa mudar antes.
 - **Região padrão** — São Paulo é oferecida apenas no Pro; no Hobby as functions rodam nos EUA e cada query paga ida e volta transatlântica. Em contexto de demonstração é aceitável, mas é o primeiro item a mudar se o projeto for usado de verdade.
 - **Supabase no plano gratuito** — projeto ocioso pode ser pausado depois de alguns dias sem uso; em semestre com intervalo entre entregas, vale confirmar o comportamento atual antes de uma apresentação.
-- **Limite de 60s** — vira o teto de qualquer operação: importação de planilha de ativos e relatório grande precisam ser desenhados em lotes que caibam nesse tempo.
+- **Limite de 60s** — vira o teto de qualquer operação: processamento em lote e relatório grande precisam ser desenhados em partes que caibam nesse tempo.
 - **Sem fila e sem agendamento** — não há volume assíncrono conhecido; a consequência é que envio de e-mail e integração externa rodam dentro do request e seguram a resposta.
 - **Env validado com Zod** — falhar na subida é melhor que `undefined` virando comportamento silencioso em produção. Vale separar as variáveis de servidor das expostas ao cliente, porque `NEXT_PUBLIC_` vai para o bundle.
 - **Log com `tenant_id`** — investigar incidente em sistema multi-tenant sem poder filtrar por tenant é procurar no escuro.
@@ -283,7 +283,7 @@ Cada item tem escolha e uma linha de justificativa, no formato que o ADR espera.
 **O que isso impede de fazer depois sem custo**
 - Atender consumidor não-TypeScript (app mobile nativo, integração de terceiro, webhook tipado): tRPC não serve e seria preciso expor REST ao lado.
 - Qualquer funcionalidade com conexão aberta (notificação em tempo real, streaming de log): a Vercel não suporta WebSocket.
-- Processamento longo (importação grande, varredura de rede): estoura o limite de execução.
+- Processamento longo de inventário ou relatórios: estoura o limite de execução.
 - Trabalho agendado ou assíncrono: exige fila e um lugar para o worker rodar, que não é a Vercel.
 - Separar o servidor do front depois: o acoplamento de tipo entre tela e router é justamente o que torna a separação trabalhosa.
 - Trocar Prisma por outro ORM: as migrations e o SQL de RLS estão dentro do Prisma Migrate.
