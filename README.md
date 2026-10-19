@@ -1,5 +1,7 @@
 # Equipamentos internos
 
+Projeto de Inovação e Tecnologia iniciado em 14/09/2026.
+
 Base inicial do sistema descrito em [PRD](docs/PRD.md), seguindo a [stack existente](docs/adr/001-stacks.md).
 
 A estrutura inicial das tabelas está descrita na
