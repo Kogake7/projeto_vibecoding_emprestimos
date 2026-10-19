@@ -7,6 +7,9 @@ sessão Supabase mantida no servidor com `@supabase/ssr` e acesso a dados de
 domínio somente por tRPC. Nenhuma credencial, token ou chave de serviço deve
 chegar ao cliente.
 
+A apresentação de `/` e `/login` segue a tela 01 de `docs/layout.md`, conforme
+o ADR-003. As rotas compartilham a mesma composição visual.
+
 ## Etapas
 
 1. Criar a tela responsiva em `/login`, com campos de e-mail e senha, mensagem

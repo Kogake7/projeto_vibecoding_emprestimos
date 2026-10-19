@@ -17,7 +17,11 @@ Requisitos: Node.js 24, pnpm e PostgreSQL/Supabase para persistência. Com Docke
 pnpm local:up
 ```
 
-Acesse `http://localhost:3000`; a página consulta `GET /api/health` e exibe o estado da conexão. Para encerrar sem apagar o volume:
+Acesse `http://localhost:3000`; a tela inicial EmpresTI segue a referência
+`docs/layout.md` e compartilha a composição de `/login`. O rodapé consulta
+`GET /api/health` e exibe o estado da conexão. O envio de credenciais continua
+desabilitado enquanto a autenticação não estiver implementada.
+Para encerrar sem apagar o volume:
 
 ```sh
 pnpm local:down
