@@ -1,0 +1,82 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  COLLABORATOR
+  ADMIN
+}
+
+enum EquipmentStatus {
+  AVAILABLE
+  LOANED
+  MAINTENANCE
+}
+
+model Tenant {
+  id          String       @id @default(uuid()) @db.Uuid
+  slug        String       @unique
+  name        String
+  memberships Membership[]
+  equipment   Equipment[]
+  auditEvents AuditEvent[]
+}
+
+model Membership {
+  userId   String @map("user_id") @db.Uuid
+  tenantId String @map("tenant_id") @db.Uuid
+  role     Role   @default(COLLABORATOR)
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  loans    Loan[]
+
+  @@id([tenantId, userId])
+  @@index([userId])
+}
+
+model Equipment {
+  id        String          @id @default(uuid()) @db.Uuid
+  tenantId  String          @map("tenant_id") @db.Uuid
+  assetTag  String
+  name      String
+  category  String
+  status    EquipmentStatus @default(AVAILABLE)
+  createdAt DateTime        @default(now()) @db.Timestamptz(3)
+  tenant    Tenant          @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+  loans     Loan[]
+
+  @@unique([tenantId, id])
+  @@unique([tenantId, assetTag])
+}
+
+model Loan {
+  id          String     @id @default(uuid()) @db.Uuid
+  tenantId    String     @map("tenant_id") @db.Uuid
+  equipmentId String     @db.Uuid
+  userId      String     @db.Uuid
+  issuedAt    DateTime   @default(now()) @db.Timestamptz(3)
+  dueAt       DateTime   @db.Timestamptz(3)
+  returnedAt  DateTime?  @db.Timestamptz(3)
+  equipment   Equipment  @relation(fields: [tenantId, equipmentId], references: [tenantId, id], onDelete: Restrict)
+  borrower    Membership @relation(fields: [tenantId, userId], references: [tenantId, userId], onDelete: Restrict)
+
+  @@index([tenantId, userId, returnedAt])
+  @@index([tenantId, returnedAt, id])
+}
+
+model AuditEvent {
+  id         String   @id @default(uuid()) @db.Uuid
+  tenantId   String   @map("tenant_id") @db.Uuid
+  actorId    String   @db.Uuid
+  action     String
+  resourceId String   @db.Uuid
+  createdAt  DateTime @default(now()) @db.Timestamptz(3)
+  tenant     Tenant   @relation(fields: [tenantId], references: [id], onDelete: Restrict)
+
+  @@index([tenantId, createdAt])
+}

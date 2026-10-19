@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: equipamentos
+      POSTGRES_USER: equipamentos
+      POSTGRES_PASSWORD: equipamentos_local
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U equipamentos -d equipamentos"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "5432:5432"
+    volumes:
+      - equipamentos_postgres:/var/lib/postgresql/data
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://equipamentos:equipamentos_local@db:5432/equipamentos?schema=public
+      DIRECT_URL: postgresql://equipamentos:equipamentos_local@db:5432/equipamentos?schema=public
+      SUPABASE_URL: https://example.supabase.co
+      SUPABASE_ANON_KEY: local-placeholder
+    ports:
+      - "3000:3000"
+
+volumes:
+  equipamentos_postgres:
