@@ -50,6 +50,26 @@ try {
             -RequiredTestFiles @('src/exemplo.test.ts') -ExpectedSourceHashes $expected
     }
     Write-Receipt $baseReceipt
+    $ciReceipt = $baseReceipt | ConvertTo-Json -Depth 8 | ConvertFrom-Json -AsHashtable
+    $ciReceipt.evidenceOrigin = 'github-actions'
+    $ciReceipt.evidenceUrl = 'https://github.com/fixture/project/actions/runs/123'
+    $ciReceipt.runId = 123
+    $ciReceipt.commit = 'a' * 40
+    $ciReceipt.workingDirectory = '/home/runner/work/project/project'
+    Write-Receipt $ciReceipt
+    Assert-InputCase 'aceita CI declarado sem inventar diretório local existente' { Read-Receipt }
+    foreach ($case in @(
+        @{ field = 'evidenceUrl'; value = 'https://attacker.example/fixture/project/actions/runs/123' },
+        @{ field = 'runId'; value = 456 },
+        @{ field = 'commit'; value = 'a' * 39 },
+        @{ field = 'workingDirectory'; value = $repo }
+    )) {
+        $candidate = $ciReceipt | ConvertTo-Json -Depth 8 | ConvertFrom-Json -AsHashtable
+        $candidate[$case.field] = $case.value
+        Write-Receipt $candidate
+        Assert-InputCase "recusa proveniência CI inválida: $($case.field)" { Read-Receipt } $true
+    }
+    Write-Receipt $baseReceipt
     Assert-InputCase 'aceita recibo completo e preserva hash do próprio recibo' {
         $result = Read-Receipt
         if ($result.sha256 -ne (Get-FileHash -LiteralPath $receiptPath -Algorithm SHA256).Hash) { throw 'Hash do recibo divergiu.' }

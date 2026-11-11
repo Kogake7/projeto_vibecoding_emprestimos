@@ -123,7 +123,26 @@ function Read-VerificadorChecksReceipt {
         $completed -gt [System.DateTimeOffset]::UtcNow.AddMinutes(5)) {
         throw 'Data UTC de conclusão inválida no recibo.'
     }
-    if (-not [System.IO.Path]::IsPathFullyQualified($receipt.workingDirectory) -or
+    $origin = if ($receipt.Contains('evidenceOrigin')) { $receipt.evidenceOrigin } else { 'local-copy' }
+    if ($origin -notin @('local-copy', 'github-actions')) { throw 'Origem do recibo não permitida.' }
+    if ($origin -eq 'github-actions') {
+        foreach ($field in @('evidenceUrl', 'runId', 'commit')) {
+            if (-not $receipt.Contains($field)) { throw "Recibo CI sem campo obrigatório: $field" }
+        }
+        $runId = [string]$receipt.runId
+        $evidenceUri = $null
+        if ($receipt.runId -is [string] -or $receipt.runId -is [bool] -or $runId -notmatch '^[1-9][0-9]*$' -or
+            $receipt.commit -isnot [string] -or $receipt.commit -notmatch '^[a-fA-F0-9]{40}$' -or
+            -not [System.Uri]::TryCreate([string]$receipt.evidenceUrl, [System.UriKind]::Absolute, [ref]$evidenceUri)) {
+            throw 'Identificação do CI inválida no recibo.'
+        }
+        if ($evidenceUri.Scheme -ne 'https' -or $evidenceUri.Host -ne 'github.com' -or
+            $evidenceUri.UserInfo -or $evidenceUri.Query -or $evidenceUri.Fragment -or
+            $evidenceUri.AbsolutePath -notmatch '^/[^/]+/[^/]+/actions/runs/([0-9]+)$' -or $Matches[1] -ne $runId -or
+            $receipt.workingDirectory -notmatch '^/home/runner/work/[a-zA-Z0-9_.-]+/[a-zA-Z0-9_.-]+/?$') {
+            throw 'URL ou diretório declarado do GitHub Actions inválido.'
+        }
+    } elseif (-not [System.IO.Path]::IsPathFullyQualified($receipt.workingDirectory) -or
         -not (Test-Path -LiteralPath $receipt.workingDirectory -PathType Container)) {
         throw 'Diretório local de execução do recibo inválido.'
     }
@@ -138,6 +157,7 @@ function Read-VerificadorChecksReceipt {
         path = $path
         relativePath = $Relative
         sha256 = (Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash
+        evidenceOrigin = $origin
         data = $receipt
     }
 }
