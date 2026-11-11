@@ -10,7 +10,8 @@ registrada se alguém lembrar de atualizar a linha.
 ## Quem usa
 - Colaborador: vê o catálogo, pede um item emprestado, devolve.
 - Operações: cadastra equipamentos, vê quem está com o quê e
-  registra devolução no balcão.
+  registra devolução no balcão. Também pode usar o catálogo e cuidar dos
+  próprios empréstimos, seguindo as mesmas regras de um colaborador.
 
 ## O que precisa existir na primeira versão
 1. Login. Cada pessoa vê os próprios empréstimos.
@@ -21,7 +22,10 @@ registrada se alguém lembrar de atualizar a linha.
 
 ## Regras que Operações já decidiu
 - Cada pessoa pode estar com no máximo 3 itens ao mesmo tempo.
-- O prazo padrão de devolução é de 14 dias.
+- O prazo padrão de devolução é de 14 dias úteis, excluindo sábados, domingos
+  e feriados nacionais brasileiros, com vencimento no mesmo horário da solicitação.
+  A contagem usa o fuso `America/Sao_Paulo` e inclui o dia da solicitação como
+  dia 1 quando ele for útil; caso contrário, o dia 1 é o próximo dia útil.
 - Quem tem item em atraso não pode pegar outro emprestado.
 - Equipamento em manutenção não aparece como disponível.
 

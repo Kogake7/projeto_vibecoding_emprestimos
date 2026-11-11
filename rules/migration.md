@@ -58,6 +58,10 @@ Não crie migration para refatoração de TypeScript, mudança visual, ajuste de
 
 1. Ler `prisma/schema.prisma`, todas as migrations existentes e o código que usa as entidades afetadas.
 2. Identificar dados existentes, compatibilidade com a versão implantada, impacto por tenant e ordem de deploy.
+   Antes de editar schema ou gerar migration, apresentar a proposta de DDL,
+   incluindo RLS/policies, compatibilidade e ambiente-alvo, e parar para revisão
+   e autorização específica do operador. Uma autorização genérica não aprova
+   uma proposta ainda não apresentada.
 3. Alterar `prisma/schema.prisma` somente no escopo autorizado.
 4. Formatar e validar o schema:
 
