@@ -34,10 +34,10 @@ describe("política de empréstimos", () => {
   });
   it("não considera atraso no instante exato do vencimento", () =>
     expect(isOverdue({ dueAt: now, returnedAt: null }, now)).toBe(false));
-  it("calcula 14 dias atravessando mês e ano sem alterar a entrada", () => {
+  it("CA-04 calcula 14 dias úteis atravessando mês e ano sem alterar a entrada", () => {
     const issued = new Date("2026-12-25T12:00:00Z");
     expect(calculateDueAt(issued).toISOString()).toBe(
-      "2027-01-08T12:00:00.000Z",
+      "2027-01-15T12:00:00.000Z",
     );
     expect(issued.toISOString()).toBe("2026-12-25T12:00:00.000Z");
   });

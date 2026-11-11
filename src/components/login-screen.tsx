@@ -1,6 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useQueryClient } from "@tanstack/react-query";
+import { api } from "../trpc/react";
+import {
+  AUTHENTICATED_PATH,
+  LOGIN_FAILURE,
+  loginSchema,
+  type LoginInput,
+} from "../shared/login";
 
 const glyphs = {
   package: "\ue390",
@@ -43,6 +54,42 @@ function Brand({ compact = false }: { compact?: boolean }) {
 }
 
 export default function LoginScreen() {
+  const router = useRouter();
+  const queryClient = useQueryClient();
+  const login = api.auth.login.useMutation();
+  const [failure, setFailure] = useState("");
+  const {
+    register,
+    handleSubmit,
+    resetField,
+    formState: { errors, isSubmitting },
+  } = useForm<LoginInput>({
+    resolver: zodResolver(loginSchema),
+    defaultValues: { email: "", password: "" },
+  });
+  const sending = isSubmitting || login.isPending;
+  const submit = handleSubmit(async (values) => {
+    setFailure("");
+    try {
+      await login.mutateAsync(values);
+      queryClient.clear();
+      router.replace(AUTHENTICATED_PATH);
+      router.refresh();
+    } catch (error) {
+      resetField("password");
+      const code =
+        error instanceof Error && "data" in error
+          ? (error.data as { code?: string } | undefined)?.code
+          : undefined;
+      setFailure(
+        code === "FORBIDDEN"
+          ? "Acesso não permitido. Fale com Operações."
+          : code === "UNAUTHORIZED"
+            ? LOGIN_FAILURE
+            : "Não foi possível entrar agora. Tente novamente.",
+      );
+    }
+  });
   const [connection, setConnection] = useState<
     "checking" | "connected" | "unavailable"
   >("checking");
@@ -109,7 +156,7 @@ export default function LoginScreen() {
             </div>
             <div className="flex flex-col gap-[6px]">
               <dt className="order-2 text-[12px] text-[#93A0C6]">
-                dias de prazo
+                dias úteis de prazo
               </dt>
               <dd className="text-[24px] leading-none font-semibold">14</dd>
             </div>
@@ -148,8 +195,11 @@ export default function LoginScreen() {
             </div>
 
             <form
+              method="post"
               className="flex flex-col gap-[22px]"
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={submit}
+              noValidate
+              aria-busy={sending}
             >
               <div className="flex flex-col gap-[18px]">
                 <label className="flex flex-col gap-[8px]">
@@ -161,13 +211,27 @@ export default function LoginScreen() {
                       <Icon name="envelope" />
                     </span>
                     <input
-                      name="email"
+                      {...register("email")}
+                      disabled={sending}
+                      aria-invalid={Boolean(errors.email)}
+                      aria-describedby={
+                        errors.email ? "email-error" : undefined
+                      }
                       type="email"
                       autoComplete="email"
                       placeholder="voce@empresa.com.br"
                       className="h-[42px] w-full rounded-[8px] border border-[var(--border-strong)] bg-[var(--surface-sunken)] pr-[12px] pl-[40px] text-[14px] placeholder:text-[var(--text-faint)]"
                     />
                   </span>
+                  {errors.email && (
+                    <span
+                      id="email-error"
+                      role="alert"
+                      className="text-xs text-[var(--status-maintenance)]"
+                    >
+                      {errors.email.message}
+                    </span>
+                  )}
                 </label>
 
                 <label className="flex flex-col gap-[8px]">
@@ -179,31 +243,49 @@ export default function LoginScreen() {
                       <Icon name="lock" />
                     </span>
                     <input
-                      name="password"
+                      {...register("password")}
+                      disabled={sending}
+                      aria-invalid={Boolean(errors.password)}
+                      aria-describedby={
+                        errors.password ? "password-error" : undefined
+                      }
                       type="password"
                       autoComplete="current-password"
                       placeholder="Sua senha"
                       className="h-[42px] w-full rounded-[8px] border border-[var(--border-strong)] bg-[var(--surface-sunken)] pr-[12px] pl-[40px] text-[14px] placeholder:text-[var(--text-faint)]"
                     />
                   </span>
+                  {errors.password && (
+                    <span
+                      id="password-error"
+                      role="alert"
+                      className="text-xs text-[var(--status-maintenance)]"
+                    >
+                      {errors.password.message}
+                    </span>
+                  )}
                 </label>
               </div>
 
               <div className="flex flex-col gap-[10px]">
                 <button
                   type="submit"
-                  disabled
+                  disabled={sending}
                   aria-describedby="login-status"
-                  className="flex h-[44px] w-full cursor-not-allowed items-center justify-center gap-[10px] rounded-[8px] border border-[var(--accent-500)] bg-transparent px-[20px] text-[13px] font-semibold text-[var(--accent-300)] opacity-45"
+                  className="flex h-[44px] w-full cursor-pointer items-center justify-center gap-[10px] rounded-[8px] border border-[var(--accent-500)] bg-transparent px-[20px] text-[13px] font-semibold text-[var(--accent-300)] hover:bg-[var(--accent-900)] disabled:cursor-not-allowed disabled:opacity-45"
                 >
-                  Entrar
+                  {sending ? "Entrando…" : "Entrar"}
                   <Icon name="arrow" className="text-[16px]" />
                 </button>
                 <p
                   id="login-status"
+                  role={failure ? "alert" : "status"}
                   className="text-[11.5px] leading-[1.7] text-[var(--text-dim)]"
                 >
-                  O acesso ainda não está habilitado.
+                  {failure ||
+                    (sending
+                      ? "Verificando seu acesso…"
+                      : "Informe suas credenciais para entrar.")}
                 </p>
               </div>
             </form>

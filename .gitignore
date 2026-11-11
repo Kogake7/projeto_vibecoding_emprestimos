@@ -6,3 +6,8 @@ coverage/
 !.env.example
 *.tsbuildinfo
 next-env.d.ts
+.vercel/
+.codex/
+__pycache__/
+*.pyc
+entrega-inicial/

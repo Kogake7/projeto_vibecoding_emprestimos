@@ -1,4 +1,5 @@
 import type { EquipmentStatus } from "@prisma/client";
+import { addInclusiveBusinessDays } from "./business-calendar";
 
 export const MAX_OPEN_LOANS = 3;
 export const LOAN_DURATION_DAYS = 14;
@@ -36,9 +37,7 @@ export function assertCanBorrow(
   if (open.length >= MAX_OPEN_LOANS) throw new LoanPolicyError("LIMIT_REACHED");
 }
 
-// Fourteen complete days from issuance, stored as an absolute UTC instant.
+// Fourteen business dates, including issuance when it is a business day.
 export function calculateDueAt(issuedAt: Date): Date {
-  return new Date(
-    issuedAt.getTime() + LOAN_DURATION_DAYS * 24 * 60 * 60 * 1000,
-  );
+  return addInclusiveBusinessDays(issuedAt, LOAN_DURATION_DAYS);
 }
