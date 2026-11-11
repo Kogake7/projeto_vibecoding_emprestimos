@@ -1,0 +1,334 @@
+{
+  "reviews": [
+    {
+      "assetTag": "TI-0001",
+      "sha256": "66018e1d0922521bb7463bf9a6ede90bf79811be0cb505da699268f1989220ff",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0002",
+      "sha256": "9735d06478968d8b25ec6c88c4d8329b1a9b5c1f808692d7a445028d9d0ffffe",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0003",
+      "sha256": "5d41175c1c65a58244ec840d13d51c902891abecfa350a30300c9ea392e1b4a8",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0004",
+      "sha256": "805eec4092d7008f646dc7219575b63a060cc79f006e0890e54d511ff4907a8e",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0005",
+      "sha256": "ae18cd85905fae99dce3ee3df1286c0f8c8605b765c07a7298a80f198cc14fc6",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0006",
+      "sha256": "72828a64171a671c6ebce1d960fabc1d3ddbb8bf7fb08ad6dbdce8ee9cbb3b61",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0007",
+      "sha256": "2448ed3c2a3b97a6e4b2f6283b7692784e672076aea0bb8de6fafa7d81442866",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0008",
+      "sha256": "898197d0dc24cf9f3692fe21e35e1bf973d8500a1d1c3dfb5b770833ebf67b22",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0009",
+      "sha256": "4e2ff879294802c4a8927cd7c1db34ff156992b1ed50157c309129d32caa4cbd",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0010",
+      "sha256": "d67abbc11db6531aabf20d0a2a805314070c577f0de5a95a10b41efc56f02503",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0011",
+      "sha256": "fcb231acd7274c17812d6c9f0dc14e793c2ad19ca0f58502d9c3e27416aeb73c",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    },
+    {
+      "assetTag": "TI-0012",
+      "sha256": "9ab82b82563a6a633c1063a9604401791923dd37c3a8b606ef828304eecefd36",
+      "reviewer": "Codex/imagens_pixabay — inspeção visual com view_image",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z",
+      "approved": true,
+      "checks": {
+        "logos": false,
+        "brands": false,
+        "text": false,
+        "screenContent": false,
+        "people": false
+      }
+    }
+  ],
+  "rejections": [
+    {
+      "photoId": 7188564,
+      "reason": "O objeto principal é xícara e telefone; não representa notebook.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 1853259,
+      "reason": "Logo Apple legível na tampa.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 785742,
+      "reason": "Caracteres do teclado legíveis no enquadramento.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 594090,
+      "reason": "Pessoas e mãos presentes.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 4532323,
+      "reason": "Logo Apple legível no monitor.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 1868496,
+      "reason": "Logo Apple legível abaixo da tela.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 1867762,
+      "reason": "Tela exibe horário e há caracteres do teclado.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 2202226,
+      "reason": "Texto HDMI legível no conector.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 1155173,
+      "reason": "Notebook Lenovo com marca; não é foto de webcam isolada.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 2364849,
+      "reason": "Rosto de criança e texto da câmera presentes.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 6801334,
+      "reason": "Marca Windows visível no notebook e objetos de outra categoria predominam.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 5446361,
+      "reason": "Caracteres do teclado legíveis.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 923128,
+      "reason": "Caracteres do teclado legíveis.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 5269378,
+      "reason": "Logo Apple e texto em objeto do cenário.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 796227,
+      "reason": "Texto WEB CAMERA e especificações legíveis ao redor da lente.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 272270,
+      "reason": "Inscrições FULL HD, modelo e lente legíveis.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 1734485,
+      "reason": "Logo Apple legível na tampa.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 926192,
+      "reason": "Logo Apple legível na tampa.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 5517751,
+      "reason": "Logo HP e texto decorativo legíveis; retrato humano no cenário.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 5017973,
+      "reason": "Caracteres do teclado legíveis e efeito visual colorido sobre o equipamento.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 1219748,
+      "reason": "Texto de megapixels e lente legíveis.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 2251049,
+      "reason": "Imagem de câmera em malha/wireframe, não fotografia de equipamento.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 274997,
+      "reason": "Marca Sony, números e letras da lente e dos controles legíveis.",
+      "reviewedAt": "2026-11-11T04:24:47.183595Z"
+    },
+    {
+      "photoId": 3539656,
+      "reason": "Marcas Samsung e Beats legíveis na versão final integral.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 7320445,
+      "reason": "Marca Nikon e caracteres da lente/controles legíveis.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 4805011,
+      "reason": "Marca Canon e inscrição 77 mm legíveis na lente.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 5095868,
+      "reason": "Texto 720p legível no corpo da webcam.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 1163878,
+      "reason": "Marca Hikvision legível na câmera.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 2202175,
+      "reason": "Marca eMac e logos Apple legíveis.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 551287,
+      "reason": "Textos RING FUNC, DISP e MENU legíveis nos controles.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 1834328,
+      "reason": "Logo Apple legível abaixo da tela.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    },
+    {
+      "photoId": 5999978,
+      "reason": "Versão integral recusada por texto no caderno do primeiro plano; a versão de TI-0007 usa recorte natural documentado antes da aprovação.",
+      "reviewedAt": "2026-11-11T04:39:16.326474Z"
+    }
+  ]
+}
