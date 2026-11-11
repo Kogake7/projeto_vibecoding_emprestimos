@@ -3,7 +3,10 @@
 Atualização de 11/11/2026. Código, migrations, inventário, imagens e documentação
 estão versionados. O CI passou; as variáveis de produção foram configuradas,
 as duas migrations existentes foram aplicadas e os 12 equipamentos foram
-populados. O endpoint publicado `/api/health` respondeu HTTP 200.
+populados. A conta do professor foi confirmada como ADMIN, sem empréstimos,
+e os doze JPEGs foram publicados no Storage com HTTP 200 e hashes conferidos.
+O login, as consultas autenticadas e as rotas protegidas foram verificados por
+HTTPS na aplicação publicada. Ver [registro de produção](docs/evidencias/producao-20261111.json).
 
 ## Links e revisão
 
@@ -11,20 +14,20 @@ populados. O endpoint publicado `/api/health` respondeu HTTP 200.
 - [Produção](https://projeto-vibecoding-emprestimos.vercel.app).
 - [CI completo: 120 testes, Prisma, lint, tipos e build](https://github.com/Kogake7/projeto_vibecoding_emprestimos/actions/runs/42992919261), commit e72e3f9.
 - [CI após correção de identidade Auth](https://github.com/Kogake7/projeto_vibecoding_emprestimos/actions/runs/42996724959), commit 551a9a5, aprovado.
-- A tag `entrega-pratica` identifica esta revisão do projeto.
+- A tag `entrega-pratica` identifica a revisão inicial; a `main` inclui o registro posterior de produção.
 
 ## 1. Conflitos: pedido, regra existente e decisão
 
-| Pedido/conflito                            | Regra preservada e motivo                                                                     | Registro/implementação              |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------- | ----------------------------------- |
-| Cinco empréstimos                          | Limite três, inclusive ADMIN, conforme PRD e decisão do operador                              | PRD; spec 003; 46b96d7              |
-| TI-0010 disponível no briefing             | Lista exata prevalece: TI-0004/0007/0010 em manutenção; outros nove disponíveis inicialmente  | spec 002; f784bca                   |
-| Senha literal na população                 | Identidade Auth e senha criadas pelo operador; CLI verifica identidade antes da Membership    | spec 002; 327500d                   |
-| Instalar sharp automaticamente             | Preparo usa Python/Pillow já instalado; não foi instalada dependência de imagens na aplicação | skill; d47fc15                      |
-| Remover créditos das fotos                 | Crédito Fotos: Pixabay e origem/autor/licença por arquivo                                     | spec 003; d47fc15/46b96d7           |
-| Operações no ambiente publicado | Destino conferido e comandos de migrations/seed delegados expressamente pelo operador; procedimentos de Auth/Storage no README | README e histórico de execução |
-| Verificador corrigir teste                 | Papel independente, somente leitura, devolve achado ao principal                              | agents/verificador-spec.md; e72e3f9 |
-| CSS produzir 800×600/repetir foto          | JPEGs reais medidos, doze IDs/hashes diferentes e revisão dos bytes finais                    | relatório de imagens e teste CA-10  |
+| Pedido/conflito                   | Regra preservada e motivo                                                                                                      | Registro/implementação              |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| Cinco empréstimos                 | Limite três, inclusive ADMIN, conforme PRD e decisão do operador                                                               | PRD; spec 003; 46b96d7              |
+| TI-0010 disponível no briefing    | Lista exata prevalece: TI-0004/0007/0010 em manutenção; outros nove disponíveis inicialmente                                   | spec 002; f784bca                   |
+| Senha literal na população        | Senha do enunciado mantida fora do Git; identidade criada sob delegação expressa e conferida pela CLI antes da Membership      | spec 002; 327500d                   |
+| Instalar sharp automaticamente    | Preparo usa Python/Pillow já instalado; não foi instalada dependência de imagens na aplicação                                  | skill; d47fc15                      |
+| Remover créditos das fotos        | Crédito Fotos: Pixabay e origem/autor/licença por arquivo                                                                      | spec 003; d47fc15/46b96d7           |
+| Operações no ambiente publicado   | Destino conferido e comandos de migrations/seed delegados expressamente pelo operador; procedimentos de Auth/Storage no README | README e histórico de execução      |
+| Verificador corrigir teste        | Papel independente, somente leitura, devolve achado ao principal                                                               | agents/verificador-spec.md; e72e3f9 |
+| CSS produzir 800×600/repetir foto | JPEGs reais medidos, doze IDs/hashes diferentes e revisão dos bytes finais                                                     | relatório de imagens e teste CA-10  |
 
 ## 1b. Lacunas e decisões antes do código
 
@@ -113,11 +116,11 @@ restauração byte a byte de componente/teste. Relatórios
 analisam o mesmo escopo e IDs; recusam corretamente a spec inteira por serem
 uma conferência parcial. Nenhum head intencionalmente quebrado foi publicado.
 
-| Spec            | Conferência e limites atuais                                                                                                                                                                    |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 001 Login       | [Parecer histórico PRONTA](docs/evidencias/verificador-login-final-20261109-03.md), onze CAs locais; regressão integra o CI atual                                                               |
-| 002 Dados       | [Rodada 11/11](docs/evidencias/verificador-20261111-final-002.md) encontrou lacunas de teste CA-04/07; foram corrigidas em 327500d e o novo CI passou; correção coberta pelo novo CI |
-| 003 Solicitação | [Rodada 11/11](docs/evidencias/verificador-20261111-final-003.md): CA-01–08 atendidos; prova dinâmica de CA-09/11 e entrega Storage de CA-10 continuam pendentes                                |
+| Spec            | Conferência e limites atuais                                                                                                                                                                                    |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 001 Login       | [Parecer histórico PRONTA](docs/evidencias/verificador-login-final-20261109-03.md), onze CAs locais; regressão integra o CI atual                                                                               |
+| 002 Dados       | [Rodada 11/11](docs/evidencias/verificador-20261111-final-002.md) encontrou lacunas de teste CA-04/07; foram corrigidas em 327500d e o novo CI passou; correção coberta pelo novo CI                            |
+| 003 Solicitação | [Rodada 11/11](docs/evidencias/verificador-20261111-final-003.md): CA-01–08 atendidos; Storage publicado e acesso autenticado conferido por HTTPS; a rodada preserva o resultado visual da data de sua execução |
 
 Os relatórios preservam as tabelas de critérios e os resultados de cada rodada.
 

@@ -37,7 +37,7 @@ Destino desta entrega: Supabase `elyivfytdbplvnfxhpqw`; Vercel `dmitri8/projeto-
 URL: [projeto-vibecoding-emprestimos.vercel.app](https://projeto-vibecoding-emprestimos.vercel.app).
 Se precisar da CLI, execute `pnpm --package=vercel@65.14.0 dlx vercel login`, conclua a autorização normal no navegador e confirme a conta com `pnpm --package=vercel@65.14.0 dlx vercel whoami`. Confira o projeto existente antes de vincular ou puxar variáveis; não crie outro projeto.
 Configure as quatro variáveis também nos ambientes Preview/Production correspondentes, sem copiar valores para Git ou logs.
-Em 11/11/2026, as quatro variáveis de produção foram configuradas, as migrations existentes foram aplicadas e os 12 equipamentos foram populados. O endpoint publicado `/api/health` respondeu HTTP 200.
+Em 11/11/2026, as quatro variáveis de produção foram configuradas, as migrations existentes foram aplicadas e os 12 equipamentos foram populados. O endpoint publicado `/api/health` respondeu HTTP 200. A conta do professor está confirmada como ADMIN de `suporte_ti`, com zero empréstimos, e os 12 JPEGs foram publicados no Storage. Login e consultas autenticadas passaram na [conferência HTTPS de produção](docs/evidencias/producao-20261111.json).
 
 Para uma reexecução autorizada, confira primeiro que as conexões apontam ao projeto acima:
 
@@ -57,7 +57,7 @@ node --import=tsx scripts/provisionar-professor.ts --apply --confirm-target elyi
 O comando verifica UUID/e-mail e exige ausência de empréstimos e papel compatível. Deve resultar em `ADMIN`, zero empréstimos. Não cria identidade Auth nem redefine senha.
 Confira no painel que há uma única identidade do professor, Membership ADMIN em `suporte_ti` e nenhum Loan associado. Não teste empréstimos com essa conta.
 
-## Fotos Pixabay e upload humano
+## Fotos Pixabay e publicação
 
 Use Python 3 e Pillow já disponíveis. Obtenha a chave em [Pixabay API](https://pixabay.com/api/docs/) e salve-a em arquivo privado fora do Git; ela não é variável de runtime da aplicação.
 Nos comandos PowerShell abaixo, substitua todos os marcadores. Os formatos de seleção e revisão estão no [contrato do preparo](skills/imagens-equipamentos/references/preparo.md).

@@ -1,0 +1,160 @@
+{
+  "project": "elyivfytdbplvnfxhpqw",
+  "production": "https://projeto-vibecoding-emprestimos.vercel.app",
+  "executionMode": "Operações assistidas pelo agente, expressamente autorizadas pelo operador em 11/11/2026.",
+  "completedAt": "2026-11-11T10:38:42.348401+00:00",
+  "professor": {
+    "emailConfirmed": true,
+    "role": "ADMIN",
+    "tenant": "suporte_ti",
+    "loans": 0
+  },
+  "storage": {
+    "bucket": "equipment",
+    "publicRead": true,
+    "clientWritePolicies": 0,
+    "objects": [
+      {
+        "assetTag": "TI-0001",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0001.jpg",
+        "status": 200,
+        "sha256": "66018e1d0922521bb7463bf9a6ede90bf79811be0cb505da699268f1989220ff",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0002",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0002.jpg",
+        "status": 200,
+        "sha256": "9735d06478968d8b25ec6c88c4d8329b1a9b5c1f808692d7a445028d9d0ffffe",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0003",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0003.jpg",
+        "status": 200,
+        "sha256": "5d41175c1c65a58244ec840d13d51c902891abecfa350a30300c9ea392e1b4a8",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0004",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0004.jpg",
+        "status": 200,
+        "sha256": "805eec4092d7008f646dc7219575b63a060cc79f006e0890e54d511ff4907a8e",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0005",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0005.jpg",
+        "status": 200,
+        "sha256": "ae18cd85905fae99dce3ee3df1286c0f8c8605b765c07a7298a80f198cc14fc6",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0006",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0006.jpg",
+        "status": 200,
+        "sha256": "72828a64171a671c6ebce1d960fabc1d3ddbb8bf7fb08ad6dbdce8ee9cbb3b61",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0007",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0007.jpg",
+        "status": 200,
+        "sha256": "2448ed3c2a3b97a6e4b2f6283b7692784e672076aea0bb8de6fafa7d81442866",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0008",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0008.jpg",
+        "status": 200,
+        "sha256": "898197d0dc24cf9f3692fe21e35e1bf973d8500a1d1c3dfb5b770833ebf67b22",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0009",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0009.jpg",
+        "status": 200,
+        "sha256": "4e2ff879294802c4a8927cd7c1db34ff156992b1ed50157c309129d32caa4cbd",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0010",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0010.jpg",
+        "status": 200,
+        "sha256": "d67abbc11db6531aabf20d0a2a805314070c577f0de5a95a10b41efc56f02503",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0011",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0011.jpg",
+        "status": 200,
+        "sha256": "fcb231acd7274c17812d6c9f0dc14e793c2ad19ca0f58502d9c3e27416aeb73c",
+        "uploaded": true
+      },
+      {
+        "assetTag": "TI-0012",
+        "url": "https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/equipment/TI-0012.jpg",
+        "status": 200,
+        "sha256": "9ab82b82563a6a633c1063a9604401791923dd37c3a8b606ef828304eecefd36",
+        "uploaded": true
+      }
+    ]
+  },
+  "verification": {
+    "method": "HTTPS real via API tRPC e páginas publicadas, com sessão emitida pelo login da aplicação; sem automação visual de navegador.",
+    "checks": [
+      {
+        "check": "anonymous redirect",
+        "passed": true,
+        "path": "/app",
+        "status": 307
+      },
+      {
+        "check": "anonymous redirect",
+        "passed": true,
+        "path": "/app/meus-emprestimos",
+        "status": 307
+      },
+      {
+        "check": "professor login and secure HttpOnly session",
+        "passed": true,
+        "status": 200
+      },
+      {
+        "check": "professor role",
+        "passed": true,
+        "role": "ADMIN"
+      },
+      {
+        "check": "authenticated inventory",
+        "passed": true,
+        "total": 12,
+        "available": 9,
+        "maintenance": 3
+      },
+      {
+        "check": "professor zero loans",
+        "passed": true,
+        "total": 0
+      },
+      {
+        "check": "authenticated page response",
+        "passed": true,
+        "path": "/app",
+        "status": 200
+      },
+      {
+        "check": "authenticated page response",
+        "passed": true,
+        "path": "/app/meus-emprestimos",
+        "status": 200
+      },
+      {
+        "check": "anonymous catalog API refused",
+        "passed": true,
+        "status": 401
+      }
+    ]
+  },
+  "dataChanges": "Criação da identidade Auth e Membership do professor, bucket público de imagens e doze objetos JPEG. Nenhum empréstimo, migration, reset ou policy criado."
+}
