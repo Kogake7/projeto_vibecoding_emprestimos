@@ -15,8 +15,13 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Verificar isolamento e decisão do executor
+        shell: pwsh
+        run: ./scripts/tests/verificador-runtime.test.ps1
       - run: pnpm db:generate
-      - run: pnpm test
+      - name: Preparar PostgreSQL local para os testes de integração
+        run: docker --host unix:///var/run/docker.sock pull postgres:17-alpine
+      - run: pnpm test --maxWorkers=1 --no-file-parallelism
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm build
