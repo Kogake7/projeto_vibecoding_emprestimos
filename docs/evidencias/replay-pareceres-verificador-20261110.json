@@ -1,0 +1,124 @@
+[
+  {
+    "round": "login-final-20261109-01",
+    "historicalReplay": true,
+    "currentSourcesVerified": false,
+    "decision": {
+      "passed": false,
+      "verdict": "NÃO PRONTA",
+      "criterionStatuses": {
+        "CA-01": "SEM TESTE",
+        "CA-02": "SEM TESTE",
+        "CA-03": "ATENDIDO",
+        "CA-04": "ATENDIDO",
+        "CA-05": "ATENDIDO",
+        "CA-06": "ATENDIDO",
+        "CA-07": "ATENDIDO",
+        "CA-08": "ATENDIDO",
+        "CA-09": "ATENDIDO",
+        "CA-10": "ATENDIDO",
+        "CA-11": "ATENDIDO"
+      },
+      "reasons": [
+        "Verificador declarou NÃO PRONTA.",
+        "CA-01 não está ATENDIDO.",
+        "CA-02 não está ATENDIDO."
+      ]
+    }
+  },
+  {
+    "round": "login-final-20261109-03",
+    "historicalReplay": true,
+    "currentSourcesVerified": false,
+    "decision": {
+      "passed": true,
+      "verdict": "PRONTA",
+      "criterionStatuses": {
+        "CA-01": "ATENDIDO",
+        "CA-02": "ATENDIDO",
+        "CA-03": "ATENDIDO",
+        "CA-04": "ATENDIDO",
+        "CA-05": "ATENDIDO",
+        "CA-06": "ATENDIDO",
+        "CA-07": "ATENDIDO",
+        "CA-08": "ATENDIDO",
+        "CA-09": "ATENDIDO",
+        "CA-10": "ATENDIDO",
+        "CA-11": "ATENDIDO"
+      },
+      "reasons": []
+    }
+  },
+  {
+    "round": "20261110-prova01-base",
+    "historicalReplay": true,
+    "currentSourcesVerified": false,
+    "decision": {
+      "passed": false,
+      "verdict": "NÃO PRONTA",
+      "criterionStatuses": {
+        "CA-01": "SEM TESTE",
+        "CA-02": "SEM TESTE",
+        "CA-03": "SEM TESTE",
+        "CA-04": "SEM TESTE",
+        "CA-05": "SEM TESTE",
+        "CA-06": "SEM TESTE",
+        "CA-07": "SEM TESTE",
+        "CA-08": "ATENDIDO",
+        "CA-09": "SEM TESTE",
+        "CA-10": "SEM TESTE",
+        "CA-11": "SEM TESTE"
+      },
+      "reasons": [
+        "Verificador declarou NÃO PRONTA.",
+        "CA-01 não está ATENDIDO.",
+        "CA-02 não está ATENDIDO.",
+        "CA-03 não está ATENDIDO.",
+        "CA-04 não está ATENDIDO.",
+        "CA-05 não está ATENDIDO.",
+        "CA-06 não está ATENDIDO.",
+        "CA-07 não está ATENDIDO.",
+        "CA-09 não está ATENDIDO.",
+        "CA-10 não está ATENDIDO.",
+        "CA-11 não está ATENDIDO."
+      ]
+    }
+  },
+  {
+    "round": "20261110-prova01-plantado",
+    "historicalReplay": true,
+    "currentSourcesVerified": false,
+    "decision": {
+      "passed": false,
+      "verdict": "NÃO PRONTA",
+      "criterionStatuses": {
+        "CA-01": "SEM TESTE",
+        "CA-02": "SEM TESTE",
+        "CA-03": "SEM TESTE",
+        "CA-04": "SEM TESTE",
+        "CA-05": "SEM TESTE",
+        "CA-06": "SEM TESTE",
+        "CA-07": "SEM TESTE",
+        "CA-08": "REPROVADO",
+        "CA-09": "SEM TESTE",
+        "CA-10": "SEM TESTE",
+        "CA-11": "SEM TESTE"
+      },
+      "reasons": [
+        "Testes locais falharam.",
+        "Verificador declarou NÃO PRONTA.",
+        "CA-01 não está ATENDIDO.",
+        "CA-02 não está ATENDIDO.",
+        "CA-03 não está ATENDIDO.",
+        "CA-04 não está ATENDIDO.",
+        "CA-05 não está ATENDIDO.",
+        "CA-06 não está ATENDIDO.",
+        "CA-07 não está ATENDIDO.",
+        "CA-08 não está ATENDIDO.",
+        "CA-09 não está ATENDIDO.",
+        "CA-10 não está ATENDIDO.",
+        "CA-11 não está ATENDIDO."
+      ]
+    }
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "round": "2026-11-09-restaurado",
+  "spec": "docs/specs/001-login/spec.md",
+  "scope": [
+    "src/components/login-screen.tsx",
+    "src/app/page.tsx",
+    "src/app/login/page.tsx"
+  ],
+  "tests": [
+    "src/components/login-screen.test.tsx"
+  ],
+  "head": "bb984859b1edc02f36533cf42e241c5deaccc475",
+  "branch": "codex/tela-inicial",
+  "capturedAtUtc": "2026-11-09T10:48:22.5240388Z",
+  "node": "v24.22.1",
+  "pnpm": "11.25.0",
+  "codex": "codex-cli 0.167.0-alpha.3.2",
+  "testCommand": "pnpm test src/components/login-screen.test.tsx",
+  "testExit": 0,
+  "testOutput": "$ vitest run \"src/components/login-screen.test.tsx\"\r\n\r\n RUN  v3.2.7 C:/Users/dmitrikogake-ieg/OneDrive - Instituto Germinare/Inovação e Tecnologia 3°/vibe coding/ProjetoMeu\r\n\r\n ✓ src/components/login-screen.test.tsx (1 test) 24ms\r\n\r\n Test Files  1 passed (1)\r\n      Tests  1 passed (1)\r\n   Start at  07:48:17\r\n   Duration  2.39s (transform 255ms, setup 0ms, collect 384ms, tests 24ms, environment 0ms, prepare 666ms)\r\n\r\n",
+  "sourceHashes": {
+    "AGENTS.md": "C18DD72B05CCB9F0E65D5682A4DAF847FD66275838F18F311B65824E928C902F",
+    "agents/verificador-spec.md": "299FB640C9158FECC29B40BDEBAF7CDCD37A7D1479A5A9D09EF3F773A5AD2E17",
+    "docs/specs/001-login/spec.md": "3104DA21EF8838CE74C44ABDD61A1C06B27BF12FEEEF326D41F67D153B278211",
+    "docs\\specs\\001-login/plan.md": "543EC50C74C5C31716895CC6E5E0CC657A453CA61DEF46B832573CB0C15ED83D",
+    "docs\\specs\\001-login/tasks.md": "48E94A3DF273AA1472731E06052CF213B9B703F478CA2125760BA7AE7883E9E7",
+    "rules/checks.md": "A07C00418B00A6F5D0C5AF2244F8D075D109B71DB8923880C63574D79B8B6DAE",
+    "rules/restrictions.md": "FC2BE03F970F219F328FB3B9D6693CF47956D8A2E2202AF0EE1AEBA81FA2143E",
+    "rules/spec-flow.md": "9DB86FE2EA63F4915C6D8A7CF9B0A0BD1B13845F9DE305A5A879E494278BF5AF",
+    "rules/tests.md": "76E30EF616126E3C90014305A9A8E4789688C46AA259150343805065E85B4864",
+    "src/app/login/page.tsx": "190CA3802CA6E3D2BE1585121D84E6E47B4FDB78205B1E46938B3E897E95254E",
+    "src/app/page.tsx": "EE9267AFFC9DD64D5A34CE5028EB2BF8B5941F043B9F7D2E384EA6148489DC93",
+    "src/components/login-screen.test.tsx": "CC53A70CD244849EB15F8200AEE760CB135DBEC83194D4461EDA00253CD9E71A",
+    "src/components/login-screen.tsx": "645C0A4602F193A189F9604115F01E7ACD184F92F5EA59FC6CADF223B589C319"
+  },
+  "isolation": "fresh exec; read-only; approval never; shell/apps/plugins off; Supabase MCP off",
+  "cliExit": 0,
+  "sourcesUnchanged": true
+}

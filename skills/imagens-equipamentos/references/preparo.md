@@ -109,8 +109,13 @@ identifica a pendência. Um manifesto vazio não comprova a entrega das imagens.
    troca da foto tiver sido aprovada e documentada.
 4. Abrir cada src e conferir status 200, JPEG e dimensões. O script local não
    escreve no bucket nem verifica que o operador fez upload.
-5. Copiar apenas o manifesto aprovado para o caminho da aplicação e executar
-   seus checks. Revisar o crédito e a correspondência foto/patrimônio na tela.
+5. Os JPEGs locais aprovados e o manifesto podem ser versionados antes do
+   upload. Nesse estágio, src é **destino Storage preparado**; aprovação dos
+   bytes locais não comprova que os objetos existam ou respondam com sucesso.
+   Registrar essa pendência e executar os checks locais. Após a publicação
+   humana, conferir os doze GETs, crédito e correspondência foto/patrimônio na
+   tela antes de declarar a entrega das imagens no ambiente publicado. Não
+   substituir src por URL local para encobrir pendência do Storage.
 
 ## Verificação do preparo
 

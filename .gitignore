@@ -11,3 +11,6 @@ next-env.d.ts
 __pycache__/
 *.pyc
 entrega-inicial/
+
+.vercel
+.env*

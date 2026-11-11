@@ -49,9 +49,13 @@ estão em [references/preparo.md](references/preparo.md).
 5. Registrar a revisão dos bytes finais e executar `finalize` e `validate`.
    Hash e tamanho comprovam integridade, não substituem inspeção visual.
 6. Entregar ao operador os JPEGs, manifesto e a lista de destinos. O operador
-   faz upload idempotente no bucket público, sem tornar escrita pública. Só
-   então conferir as URLs públicas e copiar o manifesto aprovado para
-   `public/equipment/manifest.json`.
+   faz upload idempotente no bucket público, sem tornar escrita pública. Os
+   JPEGs locais aprovados e o manifesto podem ser versionados previamente em
+   `public/equipment/`, com as URLs identificadas como **destinos preparados**.
+   Isso não comprova upload nem sucesso remoto. Depois da publicação humana,
+   conferir os doze GETs públicos antes de declarar as imagens publicadas e
+   validadas. Manter os destinos Storage; não trocar silenciosamente por URLs
+   locais para aparentar sucesso remoto.
 
 Não confundir rascunho ou teste sintético com foto aprovada. Enquanto faltarem
 chave, fotos ou revisão, manter o manifesto publicado vazio/parcial e registrar

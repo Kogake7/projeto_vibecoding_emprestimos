@@ -1,33 +1,16 @@
 # Equipamentos internos
 
-Projeto de Inovação e Tecnologia iniciado em 14/09/2026.
+Projeto de Inovação e Tecnologia iniciado em 14/09/2026, conforme [PRD](docs/PRD.md) e [ADR da stack](docs/adr/001-stacks.md).
+Next.js, tRPC, Supabase Auth e Prisma; migrations pertencem exclusivamente ao Prisma. A [modelagem](docs/database/initial-model.md) é documentação, não script de aplicação.
 
-Base inicial do sistema descrito em [PRD](docs/PRD.md), seguindo a [stack existente](docs/adr/001-stacks.md).
+## Executar e verificar localmente
 
-A estrutura inicial das tabelas está descrita na
-[modelagem do banco](docs/database/initial-model.md). O SQL consolidado nessa
-pasta é apenas uma fotografia para revisão; migrations continuam pertencendo ao
-Prisma.
+Use Node.js 24, pnpm 11.19.0 e PostgreSQL. Copie `.env.example` para `.env` e preencha somente as conexões/chaves do ambiente escolhido:
 
-## Executar
-
-Requisitos: Node.js 24, pnpm e PostgreSQL/Supabase para persistência. Com Docker, um único comando sobe aplicação e banco local:
-
-```sh
-pnpm local:up
-```
-
-Acesse `http://localhost:3000`; a tela inicial EmpresTI segue a referência
-`docs/layout.md` e compartilha a composição de `/login`. O rodapé consulta
-`GET /api/health` e exibe o estado da conexão. O envio de credenciais continua
-desabilitado enquanto a autenticação não estiver implementada.
-Para encerrar sem apagar o volume:
-
-```sh
-pnpm local:down
-```
-
-Sem Docker, use um PostgreSQL já disponível:
+- `DATABASE_URL`: runtime pelo Supavisor, porta 6543, com `pgbouncer=true&connection_limit=1`.
+- `DIRECT_URL`: conexão direta de migrations, porta 5432.
+- `SUPABASE_URL`: URL do projeto de autenticação.
+- `SUPABASE_ANON_KEY`: chave pública anon desse projeto; nunca use chave service_role no navegador.
 
 ```sh
 pnpm install
@@ -35,45 +18,72 @@ pnpm db:generate
 pnpm dev
 ```
 
-A página inicial funciona sem credenciais de autenticação, não contém dados fictícios e não simula empréstimos.
-
-Para preparar um banco de desenvolvimento, copie `.env.example` para `.env`, preencha as conexões e execute:
-
-```sh
-pnpm db:deploy
-pnpm db:seed
-```
-
-O seed cria apenas o tenant `suporte_ti`, de forma idempotente. Não cria usuários ou senhas. Nunca utilize credenciais de produção nos testes.
-
-## Verificar
+Acesse `http://localhost:3000`. Com Docker, `pnpm local:up` sobe aplicação e PostgreSQL; `pnpm local:down` encerra sem apagar o volume.
+Para aplicar migrations existentes em banco local, use `pnpm db:deploy`. Migrations em ambiente compartilhado exigem revisão e autorização específicas.
 
 ```sh
+pnpm db:generate
 pnpm test
 pnpm lint
 pnpm typecheck
 pnpm build
 ```
 
-O build usa Webpack para reproduzir na Vercel a compilação validada localmente.
+Os testes criam PostgreSQL local descartável; nunca apontam para Supabase remoto. O build usa Webpack. No Windows, prefira uma pasta fora do OneDrive: o cache `.next` apresentou EPERM na pasta sincronizada.
 
-## Implementado nesta etapa
+## Operação do ambiente publicado
 
-- Next.js App Router, TypeScript strict, Tailwind, ESLint e Prettier.
-- Modelagem Prisma com tenant, membership, equipamento, empréstimo e auditoria.
-- Chaves estrangeiras compostas impedem associar empréstimos a equipamentos ou memberships de outro tenant.
-- Política de empréstimo isolada e testável: até três itens, bloqueio por atraso, indisponibilidade e prazo de 14 dias completos.
-- Singleton Prisma e validação das variáveis no primeiro acesso ao servidor.
-- Docker Compose para subir o ambiente local completo.
-- Health check de banco consumido pela página e coberto por teste de sucesso e indisponibilidade.
-- Documentação do andar zero, regras operacionais e spec 001 de login.
+Destino desta entrega: Supabase `elyivfytdbplvnfxhpqw`; Vercel `dmitri8/projeto-vibecoding-emprestimos`, branch `main`.
+URL: [projeto-vibecoding-emprestimos.vercel.app](https://projeto-vibecoding-emprestimos.vercel.app).
+Se precisar da CLI, execute `pnpm --package=vercel@65.14.0 dlx vercel login`, conclua a autorização normal no navegador e confirme a conta com `pnpm --package=vercel@65.14.0 dlx vercel whoami`. Confira o projeto existente antes de vincular ou puxar variáveis; não crie outro projeto.
+Configure as quatro variáveis também nos ambientes Preview/Production correspondentes, sem copiar valores para Git ou logs.
+Em 11/11/2026, as quatro variáveis de produção foram configuradas, as migrations existentes foram aplicadas e os 12 equipamentos foram populados. O endpoint publicado `/api/health` respondeu HTTP 200.
 
-Prisma permanece na versão 6 para preservar `directUrl` e a configuração de pool definidos no documento. A atualização para Prisma 7 exige outro ajuste de configuração e adapter. No Next 16 a renovação de sessão deverá usar `proxy.ts`, nome atual do middleware.
+Para uma reexecução autorizada, confira primeiro que as conexões apontam ao projeto acima:
 
-## Trabalho em andamento
+```sh
+pnpm db:seed --apply --confirm-target elyivfytdbplvnfxhpqw
+```
 
-O plano e o estado das tarefas de login ficam em
-[`docs/specs/001-login`](docs/specs/001-login); o ponto exato de retomada da
-sessão fica em [`handoff.md`](handoff.md). O README não duplica esses estados.
+O seed cria `suporte_ti` e os 12 equipamentos exatos; reexecução preserva IDs, empréstimos e estados operacionais. Conflitos abortam o lote, sem reset.
+Antes de testes que emprestam itens, conferir 12 equipamentos: nove `AVAILABLE` e TI-0004, TI-0007 e TI-0010 em `MAINTENANCE`. Depois de uso real, a reexecução não deve restaurar disponibilidade.
 
-Esta etapa é a fundação, não o MVP funcional. Apenas o endpoint técnico `/api/health` está exposto; autenticação e endpoints de domínio ainda não foram implementados. RLS deny-by-default protege acessos pela API pública do Supabase; o proprietário das tabelas usado pelo Prisma pode ignorar RLS, portanto a autorização no servidor continua obrigatória.
+No painel Supabase Auth, o operador cria ou confere `marcelo.grilo@institutojef.org.br`, com a senha definida no enunciado, sem registrá-la em arquivos ou comandos. Copie o UUID da identidade e substitua `<UUID>`:
+
+```sh
+node --import=tsx scripts/provisionar-professor.ts --apply --confirm-target elyivfytdbplvnfxhpqw --user-id <UUID>
+```
+
+O comando verifica UUID/e-mail e exige ausência de empréstimos e papel compatível. Deve resultar em `ADMIN`, zero empréstimos. Não cria identidade Auth nem redefine senha.
+Confira no painel que há uma única identidade do professor, Membership ADMIN em `suporte_ti` e nenhum Loan associado. Não teste empréstimos com essa conta.
+
+## Fotos Pixabay e upload humano
+
+Use Python 3 e Pillow já disponíveis. Obtenha a chave em [Pixabay API](https://pixabay.com/api/docs/) e salve-a em arquivo privado fora do Git; ela não é variável de runtime da aplicação.
+Nos comandos PowerShell abaixo, substitua todos os marcadores. Os formatos de seleção e revisão estão no [contrato do preparo](skills/imagens-equipamentos/references/preparo.md).
+
+```powershell
+$preparo = 'skills/imagens-equipamentos/scripts/prepare_images.py'
+python $preparo search-inventory --credentials-file '<arquivo-da-chave>' --work-dir '<cache-externo>'
+python $preparo download --work-dir '<cache-externo>' --photo-id <id-selecionado>
+python $preparo prepare --work-dir '<cache-externo>' --selection '<selecao.json>' --output-dir '<pacote-externo>' --public-base-url 'https://elyivfytdbplvnfxhpqw.supabase.co/storage/v1/object/public/<bucket>/'
+python $preparo finalize --package-dir '<pacote-externo>' --reviews '<revisoes.json>'
+python $preparo validate --package-dir '<pacote-externo>'
+```
+
+Selecione 12 fotos distintas e inspecione os originais e os JPEGs finais 800×600; rejeite pessoas, marcas, logos, textos e telas com conteúdo. Hash não substitui revisão visual.
+O operador faz upload dos 12 JPEGs no bucket indicado, com leitura pública e escrita restrita, preservando os nomes `TI-0001.jpg` a `TI-0012.jpg`. Não usar hotlink permanente do Pixabay.
+Confira cada URL pública e então copie somente o `manifest.json` aprovado para `public/equipment/manifest.json`; execute os checks antes de publicar a revisão.
+Na repetição, mantenha objetos de mesmo hash; substitua fotos somente após nova aprovação. A [skill](skills/imagens-equipamentos/SKILL.md) prepara arquivos locais e não contém comando de upload.
+
+## Conferência final pelo operador
+
+1. Confira CI e build Vercel da revisão pretendida; abra `/api/health` e confirme 200 antes do fluxo de empréstimo.
+2. Entre com uma conta própria com Membership em `suporte_ti`; confira os 12 itens, fotos, créditos e três estados do catálogo em `/app`.
+3. Solicite item disponível; confira sucesso, indisponibilidade no catálogo e prazo em `/app/meus-emprestimos`, no horário de São Paulo.
+4. Confira limite de três, recusa de manutenção/indisponível e bloqueio por atraso com dados de teste apropriados. ADMIN segue as mesmas regras pessoais.
+5. Confira o acesso do professor como ADMIN e preserve zero empréstimos; registre os resultados reais no documento de entrega.
+
+Login, catálogo, solicitação imediata e empréstimos próprios estão implementados. O CI executa testes, lint, verificação de tipos e build.
+As fontes de comportamento são as specs [001](docs/specs/001-login), [002](docs/specs/002-dados-iniciais) e [003](docs/specs/003-solicitar-emprestimo). Status e evidências ficam em [ENTREGA.md](ENTREGA.md) e [handoff.md](handoff.md).
+Devolução e painel de Operações pertencem ao MVP maior, fora da fatia desta prática. RLS deny-by-default complementa a autorização obrigatória no servidor.

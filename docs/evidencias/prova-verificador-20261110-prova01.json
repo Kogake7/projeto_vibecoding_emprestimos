@@ -1,0 +1,28 @@
+{
+  "round": "20261110-prova01",
+  "componentBefore": "63696FE42C4482753085EF6D582F36F4C2DB77366CBB0274A35C5A149F0E1DF6",
+  "componentAfter": "63696FE42C4482753085EF6D582F36F4C2DB77366CBB0274A35C5A149F0E1DF6",
+  "testBefore": "DFF7F1241074ACD4111CA7A6901BDDA9933BBA4AD62EE075552C4D713EED0092",
+  "testAfter": "DFF7F1241074ACD4111CA7A6901BDDA9933BBA4AD62EE075552C4D713EED0092",
+  "rounds": {
+    "base": {
+      "testExit": 0,
+      "ca08": "ATENDIDO",
+      "passed": false,
+      "componentHash": "63696FE42C4482753085EF6D582F36F4C2DB77366CBB0274A35C5A149F0E1DF6"
+    },
+    "plantado": {
+      "testExit": 1,
+      "ca08": "REPROVADO",
+      "passed": false,
+      "componentHash": "C8DD1C7B2CBAB5D4CCC49D0D88449ACFB4954DBF292B021CD300177EFBEED0B6"
+    },
+    "restaurado": {
+      "testExit": 0,
+      "ca08": "ATENDIDO",
+      "passed": false,
+      "componentHash": "63696FE42C4482753085EF6D582F36F4C2DB77366CBB0274A35C5A149F0E1DF6"
+    }
+  },
+  "commitsCreated": false
+}

@@ -1,0 +1,2 @@
+2026-11-11T01:03:01.657943Z  WARN codex_core::shell_snapshot: Failed to create shell snapshot for powershell: Shell snapshot not supported yet for PowerShell
+2026-11-11T01:03:09.966269Z ERROR codex_core::tools::router: error=code-mode host is disabled

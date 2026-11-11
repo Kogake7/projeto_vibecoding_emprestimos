@@ -1,0 +1,15 @@
+PASS: aprova somente parecer completo com checks verdes
+PASS: rejeita NÃO PRONTA mesmo com CLI exit zero
+PASS: rejeita teste falhando com parecer positivo
+PASS: rejeita falha do CLI
+PASS: rejeita fonte alterada
+PASS: rejeita CA ausente
+PASS: rejeita CA duplicado
+PASS: rejeita CA extra
+PASS: rejeita SEM TESTE
+PASS: rejeita evidência vazia
+PASS: rejeita dois vereditos
+PASS: rejeita relatório vazio
+PASS: rejeita spec sem CAs
+PASS: rejeita IDs repetidos na spec
+14 casos técnicos passaram; sem CLI, banco ou rede.

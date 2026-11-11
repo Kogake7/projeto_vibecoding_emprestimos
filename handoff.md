@@ -1,22 +1,17 @@
-# Handoff
+# Handoff — publicação na main, 11/11/2026
 
-- Tarefa: recriar a tela inicial conforme `docs/layout.md` e enviar ao GitHub.
-- Branch local: `codex/tela-inicial`; destino autorizado: `origin/main`.
-- Origin: `https://github.com/Kogake7/projeto_vibecoding_emprestimos.git`.
-- Revisão visual: mensagem `Tela Inicial`; verificar o SHA no log de `main`.
-- `/` e `/login` usam `src/components/login-screen.tsx`, tela 01 do layout.
-- ADR-003 registra a substituição visual do ADR-002 sem alterar o ADR antigo.
-- Open Sans e Phosphor são locais em `public/fonts`, com licenças preservadas.
-- Build usa Webpack; passou em cópia temporária fora do OneDrive, sem `.env`.
-- Os 17 arquivos de `src` e `public` coincidem por hash com a cópia validada.
-- Validação: geração Prisma, 10 testes, lint, TypeScript e build passaram.
-- Browser: desktop 1440×820 e celular 390×844, teclado e senha mascarada.
-- Ambiente local: Node 24.19.0, pnpm 11.25.0; CI fixa pnpm 11.19.0.
-- Sem commit: material em `aulas/`; preserve-o. O layout integra esta revisão.
-- Migrations aplicadas nesta tarefa: nenhuma, em nenhum ambiente.
-- Supabase `Meu Projeto` está ativo; schema público vazio na última consulta.
-- A aplicação retornou 503 no health check; não declare banco conectado.
-- GitHub: envio autorizado a `main`; publicação na Vercel ainda não validada.
-- Nenhum segredo real foi alterado ou incluído no Git.
-- Não implemente login nem aplique migrations remotas nesta tarefa de publicação.
-- Próximo passo: conferir o push de `main`, o CI e o deployment na Vercel.
+- Tarefa: publicar a revisão da prática no repositório próprio e manter os links de entrega.
+- Origem: https://github.com/Kogake7/projeto_vibecoding_emprestimos; branch de trabalho codex/tela-inicial; destino main, fast-forward.
+- Código até 551a9a5; prova plantada 4fcdbaa e restauração 61e2d8b. Documentação final segue em commit separado.
+- CI 42992919261: 120 testes, Prisma, lint, tipos e build aprovados; CI 42996724959 também aprovado após correção Auth.
+- Produção: https://projeto-vibecoding-emprestimos.vercel.app; projeto Vercel dmitri8/projeto-vibecoding-emprestimos.
+- Quatro variáveis de produção configuradas; /api/health e /login responderam 200.
+- Supabase elyivfytdbplvnfxhpqw: duas migrations existentes aplicadas e inventário de 12 equipamentos populado, sob delegação expressa dos dois comandos.
+- Sem migration nova, reset ou alteração de ADR; seed preserva histórico e estados.
+- Fotos: 12 JPEGs 800×600, manifesto e revisão no Git; 20 testes Python aprovados.
+- Próxima operação: criar/conferir identidade Auth do professor, vincular ADMIN com zero empréstimos, publicar JPEGs no Storage e conferir fluxo autenticado conforme README.
+- Pareceres preservados: 002 corrigida após rodada negativa; 003 exige evidências dinâmicas e Storage antes de prontidão integral.
+- Segredos apenas em arquivos privados fora do Git; nunca imprimir valores ou incluí-los no commit.
+- Não alterar repositórios dos colegas, enviar formulário, gerar ZIP, forçar push ou criar migrations para concluir operações de dados.
+- CUA interrompido pelo controle de confiança da URL; não contornar essa proteção.
+- Publicar somente os arquivos selecionados, confirmar SHA remoto de main e acompanhar o build.

@@ -1,0 +1,215 @@
+{
+  "evidenceOrigin": "github-actions",
+  "evidenceUrl": "https://github.com/Kogake7/projeto_vibecoding_emprestimos/actions/runs/42992919261",
+  "runId": 42992919261,
+  "commit": "e72e3f96deba9d78e41c4047cc3616dc52a42c0a",
+  "testExit": 0,
+  "testOutput": "ORIGEM: GitHub Actions autenticado obtido pelo principal. https://github.com/Kogake7/projeto_vibecoding_emprestimos/actions/runs/42992919261\nCOMMIT CI: e72e3f96deba9d78e41c4047cc3616dc52a42c0a\nOs testes abaixo foram executados no runner CI, nao no laptop e nao pelo verificador. Fontes executaveis atuais comparadas aos blobs Git, com apenas CRLF/LF normalizados para equivalencia. Documentos adicionais de leitura NAO sao apresentados como executados no CI: docs/evidencias/imagens-20261111.md\n\n2026-11-11T09:10:46.6055839Z ##[group]Run ./scripts/tests/verificador-runtime.test.ps1\n2026-11-11T09:10:46.6056322Z ./scripts/tests/verificador-runtime.test.ps1\n2026-11-11T09:10:46.6080378Z shell: /usr/bin/pwsh -command \". '{0}'\"\n2026-11-11T09:10:46.6080664Z env:\n2026-11-11T09:10:46.6080916Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:10:46.6081409Z ##[endgroup]\n2026-11-11T09:10:50.8172967Z PASS: aprova somente parecer completo com checks verdes\n2026-11-11T09:10:50.8226077Z PASS: rejeita NÃO PRONTA mesmo com CLI exit zero\n2026-11-11T09:10:50.8243771Z PASS: rejeita teste falhando com parecer positivo\n2026-11-11T09:10:50.8254986Z PASS: rejeita falha do CLI\n2026-11-11T09:10:50.8272394Z PASS: rejeita fonte alterada\n2026-11-11T09:10:50.8287795Z PASS: rejeita CA ausente\n2026-11-11T09:10:50.8302058Z PASS: rejeita CA duplicado\n2026-11-11T09:10:50.8318232Z PASS: rejeita CA extra\n2026-11-11T09:10:50.8335350Z PASS: rejeita SEM TESTE\n2026-11-11T09:10:50.8353052Z PASS: rejeita evidência vazia\n2026-11-11T09:10:50.8392361Z PASS: rejeita dois vereditos\n2026-11-11T09:10:50.8410381Z PASS: rejeita relatório vazio\n2026-11-11T09:10:50.8411286Z PASS: rejeita spec sem CAs\n2026-11-11T09:10:50.8412303Z PASS: rejeita IDs repetidos na spec\n2026-11-11T09:10:50.8522654Z PASS: ambiente mínimo recusa credenciais de banco, aplicação e provedores\n2026-11-11T09:10:51.5552537Z PASS: invocação anterior herda sentinela; processo filtrado não herda, preservando stdin UTF-8, stderr e exit\n2026-11-11T09:10:52.6305212Z PASS: processo sem resposta é encerrado e recusado\n2026-11-11T09:10:52.6315024Z 17 casos técnicos passaram; sem Codex, banco ou rede.\n2026-11-11T09:10:52.7077728Z PASS: aceita fonte explícita src/exemplo.test.ts\n2026-11-11T09:10:52.7093649Z PASS: aceita fonte explícita src/dados.json\n2026-11-11T09:10:52.7106983Z PASS: aceita fonte explícita scripts/preparar.py\n2026-11-11T09:10:52.7119370Z PASS: aceita fonte explícita scripts/local.ps1\n2026-11-11T09:10:52.7132505Z PASS: aceita fonte explícita scripts/manifesto.mjs\n2026-11-11T09:10:52.7151912Z PASS: recusa caminho/tipo sensível ../fora.json\n2026-11-11T09:10:52.7161338Z PASS: recusa caminho/tipo sensível .env\n2026-11-11T09:10:52.7170892Z PASS: recusa caminho/tipo sensível auth.json\n2026-11-11T09:10:52.7180579Z PASS: recusa caminho/tipo sensível .codex/config.json\n2026-11-11T09:10:52.7190857Z PASS: recusa caminho/tipo sensível src/pixabay-api-key.json\n2026-11-11T09:10:52.7200619Z PASS: recusa caminho/tipo sensível src/arquivo.exe\n2026-11-11T09:10:52.7215247Z PASS: recusa fonte absoluta\n2026-11-11T09:10:52.9620396Z PASS: aceita recibo completo e preserva hash do próprio recibo\n2026-11-11T09:10:52.9778151Z PASS: recibo recusa testes falhando\n2026-11-11T09:10:52.9814464Z PASS: recibo recusa exit string em vez de número\n2026-11-11T09:10:52.9852384Z PASS: recibo recusa saída vazia\n2026-11-11T09:10:52.9973111Z PASS: recibo recusa teste pedido ausente\n2026-11-11T09:10:53.0008503Z PASS: recibo recusa testFiles escalar\n2026-11-11T09:10:53.0065578Z PASS: recibo recusa hash do escopo ausente\n2026-11-11T09:10:53.0133841Z PASS: recibo recusa hash adulterado\n2026-11-11T09:10:53.0170196Z PASS: recibo recusa Node principal divergente\n2026-11-11T09:10:53.0210922Z PASS: recibo recusa pnpm divergente\n2026-11-11T09:10:53.0301211Z PASS: recibo recusa data sem UTC\n2026-11-11T09:10:53.0543686Z PASS: recibo recusa data futura\n2026-11-11T09:10:53.0617011Z PASS: recibo recusa diretório relativo\n2026-11-11T09:10:53.0694080Z PASS: recibo recusa conexão com senha na saída\n2026-11-11T09:10:53.0770211Z PASS: recibo recusa token em URL na saída\n2026-11-11T09:10:53.0856529Z PASS: recusa fonte alterada mesmo com hash esperado antigo\n2026-11-11T09:10:53.0887251Z PASS: recusa campos obrigatórios ausentes\n2026-11-11T09:10:53.0928621Z PASS: recusa JSON inválido\n2026-11-11T09:10:53.0944251Z PASS: recusa recibo fora de docs/evidencias\n2026-11-11T09:10:53.1002030Z PASS: recusa recibo maior que 2 MiB\n2026-11-11T09:10:53.1095423Z PASS: aceita PNG explícito com assinatura válida\n2026-11-11T09:10:53.1107486Z PASS: não permite imagem pelo canal textual\n2026-11-11T09:10:53.1118046Z PASS: recusa imagem fora da pasta aprovada\n2026-11-11T09:10:53.1138409Z PASS: recusa arquivo de texto disfarçado de PNG\n2026-11-11T09:10:53.1231957Z PASS: recusa imagem maior que 5 MiB\n2026-11-11T09:10:53.1273812Z PASS: recusa fonte através de junction\n2026-11-11T09:10:53.1275576Z 38 casos de entradas/recibos/imagens passaram; sem Codex, banco ou rede.\n2026-11-11T09:10:53.1903790Z ##[group]Run pnpm db:generate\n2026-11-11T09:10:53.1904113Z pnpm db:generate\n2026-11-11T09:10:53.1924139Z shell: /usr/bin/bash -e {0}\n2026-11-11T09:10:53.1924385Z env:\n2026-11-11T09:10:53.1924632Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:10:53.1924948Z ##[endgroup]\n2026-11-11T09:10:53.6753378Z $ prisma generate\n2026-11-11T09:10:54.5181022Z Prisma schema loaded from prisma/schema.prisma\n2026-11-11T09:10:54.6747672Z \n2026-11-11T09:10:54.6749863Z ✔ Generated Prisma Client (v6.19.3) to ./node_modules/.pnpm/@prisma+client@6.19.3_prisma@6.19.3_typescript@5.9.3__typescript@5.9.3/node_modules/@prisma/client in 72ms\n2026-11-11T09:10:54.6750745Z \n2026-11-11T09:10:54.6751195Z Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)\n2026-11-11T09:10:54.6751952Z \n2026-11-11T09:10:54.6752560Z Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate\n2026-11-11T09:10:54.6753217Z \n2026-11-11T09:10:54.7169370Z ##[group]Run docker --host unix:///var/run/docker.sock pull postgres:17-alpine\n2026-11-11T09:10:54.7169999Z docker --host unix:///var/run/docker.sock pull postgres:17-alpine\n2026-11-11T09:10:54.7191325Z shell: /usr/bin/bash -e {0}\n2026-11-11T09:10:54.7191983Z env:\n2026-11-11T09:10:54.7192267Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:10:54.7192579Z ##[endgroup]\n2026-11-11T09:10:55.1035016Z 17-alpine: Pulling from library/postgres\n2026-11-11T09:10:55.1755540Z 881fc932939e: Pulling fs layer\n2026-11-11T09:10:55.1756158Z 4af2f594366f: Pulling fs layer\n2026-11-11T09:10:55.1756694Z a6e011ae4b07: Pulling fs layer\n2026-11-11T09:10:55.1757229Z 80bf5832b7b5: Pulling fs layer\n2026-11-11T09:10:55.1757735Z 06b8a748e903: Pulling fs layer\n2026-11-11T09:10:55.1758233Z 5c816eed2102: Pulling fs layer\n2026-11-11T09:10:55.1758762Z 0465fcfe7974: Pulling fs layer\n2026-11-11T09:10:55.1759314Z e0de8084b760: Pulling fs layer\n2026-11-11T09:10:55.1759830Z bdfe5a2c0729: Pulling fs layer\n2026-11-11T09:10:55.1760120Z 253db6c496ed: Pulling fs layer\n2026-11-11T09:10:55.1760543Z 5c816eed2102: Waiting\n2026-11-11T09:10:55.1760989Z 0465fcfe7974: Waiting\n2026-11-11T09:10:55.1761314Z bdfe5a2c0729: Waiting\n2026-11-11T09:10:55.1761899Z e0de8084b760: Waiting\n2026-11-11T09:10:55.1762281Z 253db6c496ed: Waiting\n2026-11-11T09:10:55.1762682Z 80bf5832b7b5: Waiting\n2026-11-11T09:10:55.1763092Z 06b8a748e903: Waiting\n2026-11-11T09:10:55.2074408Z 4af2f594366f: Verifying Checksum\n2026-11-11T09:10:55.2077435Z 4af2f594366f: Download complete\n2026-11-11T09:10:55.2173051Z a6e011ae4b07: Download complete\n2026-11-11T09:10:55.2195228Z 881fc932939e: Verifying Checksum\n2026-11-11T09:10:55.2196096Z 881fc932939e: Download complete\n2026-11-11T09:10:55.2359516Z 80bf5832b7b5: Verifying Checksum\n2026-11-11T09:10:55.2360612Z 80bf5832b7b5: Download complete\n2026-11-11T09:10:55.2455562Z 5c816eed2102: Verifying Checksum\n2026-11-11T09:10:55.2456058Z 5c816eed2102: Download complete\n2026-11-11T09:10:55.2654477Z 0465fcfe7974: Verifying Checksum\n2026-11-11T09:10:55.2656177Z 0465fcfe7974: Download complete\n2026-11-11T09:10:55.2769031Z e0de8084b760: Verifying Checksum\n2026-11-11T09:10:55.2770944Z e0de8084b760: Download complete\n2026-11-11T09:10:55.2946854Z bdfe5a2c0729: Verifying Checksum\n2026-11-11T09:10:55.2948462Z bdfe5a2c0729: Download complete\n2026-11-11T09:10:55.3055333Z 253db6c496ed: Verifying Checksum\n2026-11-11T09:10:55.3056190Z 253db6c496ed: Download complete\n2026-11-11T09:10:55.3954802Z 881fc932939e: Pull complete\n2026-11-11T09:10:55.6652124Z 06b8a748e903: Verifying Checksum\n2026-11-11T09:10:55.6652999Z 06b8a748e903: Download complete\n2026-11-11T09:10:58.2432542Z 4af2f594366f: Pull complete\n2026-11-11T09:10:58.3839833Z a6e011ae4b07: Pull complete\n2026-11-11T09:10:58.3933262Z 80bf5832b7b5: Pull complete\n2026-11-11T09:11:00.8452447Z 06b8a748e903: Pull complete\n2026-11-11T09:11:00.8567382Z 5c816eed2102: Pull complete\n2026-11-11T09:11:00.8665914Z 0465fcfe7974: Pull complete\n2026-11-11T09:11:00.8774384Z e0de8084b760: Pull complete\n2026-11-11T09:11:00.8866175Z bdfe5a2c0729: Pull complete\n2026-11-11T09:11:00.8946641Z 253db6c496ed: Pull complete\n2026-11-11T09:11:00.8985505Z Digest: sha256:3540c0362c809df084ffac0ae69fe794515f9de92692f02178bcdce0ef0302ac\n2026-11-11T09:11:00.9001919Z Status: Downloaded newer image for postgres:17-alpine\n2026-11-11T09:11:00.9011014Z docker.io/library/postgres:17-alpine\n2026-11-11T09:11:00.9064157Z ##[group]Run pnpm test --maxWorkers=1 --no-file-parallelism\n2026-11-11T09:11:00.9064631Z pnpm test --maxWorkers=1 --no-file-parallelism\n2026-11-11T09:11:00.9084714Z shell: /usr/bin/bash -e {0}\n2026-11-11T09:11:00.9084957Z env:\n2026-11-11T09:11:00.9085213Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:11:00.9085524Z ##[endgroup]\n2026-11-11T09:11:01.3874584Z $ vitest run --maxWorkers=1 --no-file-parallelism\n2026-11-11T09:11:01.6781863Z \n2026-11-11T09:11:01.6786540Z  RUN  v3.2.7 /home/runner/work/projeto_vibecoding_emprestimos/projeto_vibecoding_emprestimos\n2026-11-11T09:11:01.6787524Z \n2026-11-11T09:11:05.7042460Z  ✓ src/server/api/loans.test.ts (15 tests) 3431ms\n2026-11-11T09:11:05.7044748Z    ✓ Spec 003 — catálogo e solicitação em PostgreSQL real > CA-06 falha real de lock na auditoria reverte Loan e Equipment  322ms\n2026-11-11T09:11:08.8416768Z  ✓ src/server/services/initial-data.test.ts (12 tests) 2806ms\n2026-11-11T09:11:12.0435531Z  ✓ src/server/api/authorization.test.ts (17 tests) 2755ms\n2026-11-11T09:11:45.3911047Z  ✓ src/server/auth/login-flow.test.ts (7 tests) 33030ms\n2026-11-11T09:11:45.3912831Z    ✓ login e sessão via HTTP Next + SDK SSR + PostgreSQL local > CA-01 CA-07 inicia sessão de COLLABORATOR e aponta para área protegida  340ms\n2026-11-11T09:11:48.4829305Z  ✓ src/server/services/access.test.ts (11 tests) 2780ms\n2026-11-11T09:11:48.7394390Z  ✓ src/server/auth/supabase.test.ts (8 tests) 9ms\n2026-11-11T09:11:49.1284934Z  ✓ src/components/equipment-workspace.test.tsx (8 tests) 25ms\n2026-11-11T09:11:49.4240726Z  ✓ src/shared/equipment-images.test.ts (3 tests) 13ms\n2026-11-11T09:11:49.6446864Z  ✓ src/server/services/initial-data-target.test.ts (17 tests) 7ms\n2026-11-11T09:11:49.8748769Z  ✓ src/server/services/business-calendar.test.ts (10 tests) 7ms\n2026-11-11T09:11:50.0972604Z  ✓ src/server/services/loan-policy.test.ts (8 tests) 5ms\n2026-11-11T09:11:50.4808835Z  ✓ src/components/login-screen.test.tsx (2 tests) 23ms\n2026-11-11T09:11:50.7227248Z  ✓ src/app/api/health/route.test.ts (2 tests) 7ms\n2026-11-11T09:11:50.7373530Z \n2026-11-11T09:11:50.7378717Z  Test Files  13 passed (13)\n2026-11-11T09:11:50.7379625Z       Tests  120 passed (120)\n2026-11-11T09:11:50.7380513Z    Start at  09:11:01\n2026-11-11T09:11:50.7382884Z    Duration  49.06s (transform 335ms, setup 0ms, collect 1.55s, tests 44.90s, environment 2ms, prepare 797ms)\n2026-11-11T09:11:50.7383577Z \n2026-11-11T09:11:50.8882400Z ##[group]Run pnpm lint\n2026-11-11T09:11:50.8882717Z pnpm lint\n2026-11-11T09:11:50.8904027Z shell: /usr/bin/bash -e {0}\n2026-11-11T09:11:50.8904633Z env:\n2026-11-11T09:11:50.8904917Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:11:50.8905229Z ##[endgroup]\n2026-11-11T09:11:51.3782018Z $ eslint .\n2026-11-11T09:11:55.0431812Z ##[group]Run pnpm typecheck\n2026-11-11T09:11:55.0432147Z pnpm typecheck\n2026-11-11T09:11:55.0452429Z shell: /usr/bin/bash -e {0}\n2026-11-11T09:11:55.0452671Z env:\n2026-11-11T09:11:55.0452921Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:11:55.0453236Z ##[endgroup]\n2026-11-11T09:11:55.5231335Z $ tsc --noEmit\n2026-11-11T09:11:59.2144954Z ##[group]Run pnpm build\n2026-11-11T09:11:59.2145408Z pnpm build\n2026-11-11T09:11:59.2175098Z shell: /usr/bin/bash -e {0}\n2026-11-11T09:11:59.2175536Z env:\n2026-11-11T09:11:59.2175970Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin\n2026-11-11T09:11:59.2176528Z ##[endgroup]\n2026-11-11T09:11:59.6932228Z $ prisma generate && next build --webpack\n2026-11-11T09:12:00.5613400Z Prisma schema loaded from prisma/schema.prisma\n2026-11-11T09:12:00.7150539Z \n2026-11-11T09:12:00.7152809Z ✔ Generated Prisma Client (v6.19.3) to ./node_modules/.pnpm/@prisma+client@6.19.3_prisma@6.19.3_typescript@5.9.3__typescript@5.9.3/node_modules/@prisma/client in 71ms\n2026-11-11T09:12:00.7153876Z \n2026-11-11T09:12:00.7154406Z Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)\n2026-11-11T09:12:00.7154926Z \n2026-11-11T09:12:00.7155682Z Tip: Interested in query caching in just a few lines of code? Try Accelerate today! https://pris.ly/tip-3-accelerate\n2026-11-11T09:12:00.7156468Z \n2026-11-11T09:12:01.1203092Z ▲ Next.js 16.3.5 (webpack)\n2026-11-11T09:12:01.1308806Z ✓ Running next.config took 10ms\n2026-11-11T09:12:01.1384137Z Attention: Next.js now collects completely anonymous telemetry regarding usage.\n2026-11-11T09:12:01.1385778Z This information is used to shape Next.js' roadmap and prioritize features.\n2026-11-11T09:12:01.1387865Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:\n2026-11-11T09:12:01.1389375Z https://nextjs.org/telemetry\n2026-11-11T09:12:01.1389969Z \n2026-11-11T09:12:01.1758907Z \n2026-11-11T09:12:01.2093395Z   Creating an optimized production build ...\n2026-11-11T09:12:06.4331982Z ✓ Compiled successfully in 3.1s\n2026-11-11T09:12:06.4352900Z   Running TypeScript ...\n2026-11-11T09:12:08.2917742Z   Finished TypeScript in 1856ms ...\n2026-11-11T09:12:08.2939651Z   Collecting page data using 3 workers ...\n2026-11-11T09:12:10.0460985Z   Generating static pages using 3 workers (0/5) ...\n2026-11-11T09:12:10.1243461Z   Generating static pages using 3 workers (1/5) \n2026-11-11T09:12:10.3197589Z   Generating static pages using 3 workers (2/5) \n2026-11-11T09:12:10.3198379Z   Generating static pages using 3 workers (3/5) \n2026-11-11T09:12:10.3199302Z ✓ Generating static pages using 3 workers (5/5) in 274ms\n2026-11-11T09:12:10.7463137Z   Finalizing page optimization ...\n2026-11-11T09:12:10.7463721Z   Collecting build traces ...\n2026-11-11T09:12:20.3110217Z \n2026-11-11T09:12:20.3132290Z Route (app)\n2026-11-11T09:12:20.3133038Z ┌ ○ /\n2026-11-11T09:12:20.3133477Z ├ ○ /_not-found\n2026-11-11T09:12:20.3133901Z ├ ƒ /api/health\n2026-11-11T09:12:20.3134388Z ├ ƒ /api/trpc/[trpc]\n2026-11-11T09:12:20.3134825Z ├ ƒ /app\n2026-11-11T09:12:20.3135287Z ├ ƒ /app/meus-emprestimos\n2026-11-11T09:12:20.3135782Z └ ○ /login\n2026-11-11T09:12:20.3135986Z \n2026-11-11T09:12:20.3135998Z \n2026-11-11T09:12:20.3136257Z ƒ Proxy (Middleware)\n2026-11-11T09:12:20.3136518Z \n2026-11-11T09:12:20.3136938Z ○  (Static)   prerendered as static content\n2026-11-11T09:12:20.3137626Z ƒ  (Dynamic)  server-rendered on demand\n2026-11-11T09:12:20.3137934Z ",
+  "testFiles": [
+    "src/server/services/initial-data.test.ts",
+    "src/server/services/initial-data-target.test.ts",
+    "src/shared/equipment-images.test.ts"
+  ],
+  "sourceHashes": {
+    "AGENTS.md": "4a0cfa3fd9fe046cceae35d996fed7039301688c9bd87faec9389d92893aa3f6",
+    "agents/verificador-spec.md": "72190f8d61fd0d634e539d4323d839bbf21171fbe54bbe1b996e8e1d2cee27b2",
+    "docs/PRD.md": "9cf0d39b4a2774c3e35093a5cda4979bc0067705e5bc33a9b4ee110ae9b860ca",
+    "docs/adr/001-stacks.md": "5e34af8112c7cb293a91750569492929be67394374147cb9fcae7577c8a644de",
+    "docs/adr/002-design-system.md": "06ac56f80d8153bf74b78fc3bdd66ecd0143ad92f4c356df73abccea84af2907",
+    "docs/andar-zero.md": "547345a8cccb32a2bc5376b72d4c45cd08cb76c9d92a85c5fa856a382b8c380c",
+    "docs/evidencias/imagens-20261111.md": "100e174cfbeccd3cb99f55ac812abf9db3f5ec43ed5a14498f87c6525c9557c4",
+    "docs/specs/002-dados-iniciais/plan.md": "b680a05bb3591802a9ae4ee3cbdd99d0fb94ba6f1052d83eac3eb070a0b6f4e7",
+    "docs/specs/002-dados-iniciais/spec.md": "98dd0783725ba1688ca3fcd05d65e55dfda640c38318ba0272c2b55cb9de4b07",
+    "docs/specs/002-dados-iniciais/tasks.md": "d5872312c8e8e32ca215ac50660f240fd8574d05b3016ea11676915c66b9d9ed",
+    "prisma/migrations/20260914110000_initial/migration.sql": "98ae6879e38b03a8715e99c7376bbd858c2a7edcaf513f9efe592ca04ac738cb",
+    "prisma/migrations/20260914110100_constraints/migration.sql": "68bcb005bfc3167563bd1a32182e0b3228890d780e9f761d0e91bb050d7886a4",
+    "prisma/schema.prisma": "a5a631a2143e1530fa0c80f1f5652b6eb46c4cfd5a2a1f20afd7ee8a2773f097",
+    "prisma/seed.ts": "ba34b63dda0a5086cc01a04749b2ccf6c6aa431264934e2c7597c96ebdc1b7a5",
+    "public/equipment/manifest.json": "027e82502b8bcbeed6fb22cd77d738024b644d096b5905d36315d415a39a26ba",
+    "rules/checks.md": "a07c00418b00a6f5d0c5af2244f8d075d109b71db8923880c63574d79b8b6dae",
+    "rules/migration.md": "74ea923a43cf4dc3155f51c6b120cad5682dd7b325805ffddaed25d0398c5837",
+    "rules/operacao.md": "9a7ad5744149d5df7eb6e8f7fc3f4bff0c4cbcbb4541107227604000a59b7259",
+    "rules/restrictions.md": "fc2be03f970f219f328fb3b9d6693cf47956d8a2e2202af0ee1aeba81fa2143e",
+    "rules/secrets.md": "5efa59ac80f9b9e4d8c5f26f77aed9e27d1f40a07763559dc22155d732f91467",
+    "rules/spec-flow.md": "12ce45c05bd03d7d13bd6eca47d375b221b0d70353c5de65322e5d5231c1ebb8",
+    "rules/tests.md": "76e30ef616126e3c90014305a9a8e4789688c46aa259150343805065e85b4864",
+    "scripts/provisionar-professor.ts": "f157d88ea48d77e4a83e5e17bdabe8a3b39fcda497242637083997d2c3aa56bc",
+    "skills/imagens-equipamentos/SKILL.md": "88be9b778b371305df322738967899adfeccb95a6879f4987254178c5444bf47",
+    "skills/imagens-equipamentos/references/preparo.md": "a370772e7a3b26bb153a0bf689a032739ffa4cdc5b158c0f3f5fbb7729b3d3c3",
+    "src/server/services/initial-data-target.test.ts": "3aba2dc561e19fac8714ae398893ea49553d7c6220f77c0d5e143c0c0958aea0",
+    "src/server/services/initial-data-target.ts": "8670789b94f20e2fcc2066cd47cb31eaf7ab2a040e05a9e499f0add1a3120950",
+    "src/server/services/initial-data.test.ts": "f30ebbb48b98e055821e08902c0f5a9a668cc8c6ce78e0757d9696df1c0759fa",
+    "src/server/services/initial-data.ts": "d8613821f5c2cf1cb9f9f8d4c839f1e1e87172129dfc4aca5db0bd3747c00ff5",
+    "src/shared/equipment-images.test.ts": "10860500c09df2515a5720ad279c76e02954ccc91b945fddb95c680bbd9eab14",
+    "src/shared/equipment-images.ts": "3998ead2e590406e6ba761cff9f78da0c1307255044ef989b588d2ccf90ffe97",
+    "src/shared/equipment-inventory.json": "5ee9badb8a6e3e150e320a634ce621701a3fe5e3821d16307086a86a97517445",
+    "docs\\specs\\002-dados-iniciais/plan.md": "b680a05bb3591802a9ae4ee3cbdd99d0fb94ba6f1052d83eac3eb070a0b6f4e7",
+    "docs\\specs\\002-dados-iniciais/tasks.md": "d5872312c8e8e32ca215ac50660f240fd8574d05b3016ea11676915c66b9d9ed"
+  },
+  "command": "GitHub Actions: pnpm test --maxWorkers=1 --no-file-parallelism; pnpm db:generate; pnpm lint; pnpm typecheck; pnpm build; pwsh -File scripts/tests/verificador-runtime.test.ps1",
+  "node": "v24.22.2",
+  "pnpm": "11.19.0",
+  "completedAtUtc": "2026-11-11T09:12:20.4036305Z",
+  "workingDirectory": "/home/runner/work/projeto_vibecoding_emprestimos/projeto_vibecoding_emprestimos",
+  "ciSourceComparison": {
+    "AGENTS.md": {
+      "ciBlobSha256": "4a0cfa3fd9fe046cceae35d996fed7039301688c9bd87faec9389d92893aa3f6",
+      "currentSha256": "4a0cfa3fd9fe046cceae35d996fed7039301688c9bd87faec9389d92893aa3f6",
+      "comparison": "exact-bytes"
+    },
+    "agents/verificador-spec.md": {
+      "ciBlobSha256": "72190f8d61fd0d634e539d4323d839bbf21171fbe54bbe1b996e8e1d2cee27b2",
+      "currentSha256": "72190f8d61fd0d634e539d4323d839bbf21171fbe54bbe1b996e8e1d2cee27b2",
+      "comparison": "exact-bytes"
+    },
+    "docs/PRD.md": {
+      "ciBlobSha256": "6ac8deaa8d926468e5aa7409c55e6ae372b32b1b222b52b6d2058a86aa355a4a",
+      "currentSha256": "9cf0d39b4a2774c3e35093a5cda4979bc0067705e5bc33a9b4ee110ae9b860ca",
+      "comparison": "CRLF-normalized-LF-equivalent"
+    },
+    "docs/adr/001-stacks.md": {
+      "ciBlobSha256": "5e34af8112c7cb293a91750569492929be67394374147cb9fcae7577c8a644de",
+      "currentSha256": "5e34af8112c7cb293a91750569492929be67394374147cb9fcae7577c8a644de",
+      "comparison": "exact-bytes"
+    },
+    "docs/adr/002-design-system.md": {
+      "ciBlobSha256": "06ac56f80d8153bf74b78fc3bdd66ecd0143ad92f4c356df73abccea84af2907",
+      "currentSha256": "06ac56f80d8153bf74b78fc3bdd66ecd0143ad92f4c356df73abccea84af2907",
+      "comparison": "exact-bytes"
+    },
+    "docs/andar-zero.md": {
+      "ciBlobSha256": "547345a8cccb32a2bc5376b72d4c45cd08cb76c9d92a85c5fa856a382b8c380c",
+      "currentSha256": "547345a8cccb32a2bc5376b72d4c45cd08cb76c9d92a85c5fa856a382b8c380c",
+      "comparison": "exact-bytes"
+    },
+    "docs/specs/002-dados-iniciais/plan.md": {
+      "ciBlobSha256": "b680a05bb3591802a9ae4ee3cbdd99d0fb94ba6f1052d83eac3eb070a0b6f4e7",
+      "currentSha256": "b680a05bb3591802a9ae4ee3cbdd99d0fb94ba6f1052d83eac3eb070a0b6f4e7",
+      "comparison": "exact-bytes"
+    },
+    "docs/specs/002-dados-iniciais/spec.md": {
+      "ciBlobSha256": "98dd0783725ba1688ca3fcd05d65e55dfda640c38318ba0272c2b55cb9de4b07",
+      "currentSha256": "98dd0783725ba1688ca3fcd05d65e55dfda640c38318ba0272c2b55cb9de4b07",
+      "comparison": "exact-bytes"
+    },
+    "docs/specs/002-dados-iniciais/tasks.md": {
+      "ciBlobSha256": "d5872312c8e8e32ca215ac50660f240fd8574d05b3016ea11676915c66b9d9ed",
+      "currentSha256": "d5872312c8e8e32ca215ac50660f240fd8574d05b3016ea11676915c66b9d9ed",
+      "comparison": "exact-bytes"
+    },
+    "prisma/migrations/20260914110000_initial/migration.sql": {
+      "ciBlobSha256": "ae3a63bc92e7e83c7d15866af81a2659d09147ca76a909bee895f31340a23a17",
+      "currentSha256": "98ae6879e38b03a8715e99c7376bbd858c2a7edcaf513f9efe592ca04ac738cb",
+      "comparison": "CRLF-normalized-LF-equivalent"
+    },
+    "prisma/migrations/20260914110100_constraints/migration.sql": {
+      "ciBlobSha256": "77ba70774ba2ed42a3b7c3d10f0114fd65d34b5c123f4d3ff9ea758c1bc6e5d3",
+      "currentSha256": "68bcb005bfc3167563bd1a32182e0b3228890d780e9f761d0e91bb050d7886a4",
+      "comparison": "CRLF-normalized-LF-equivalent"
+    },
+    "prisma/schema.prisma": {
+      "ciBlobSha256": "4144c478d2c5ee6671f23c05243a27f52736e2d6815c39055482a1ba59e719f3",
+      "currentSha256": "a5a631a2143e1530fa0c80f1f5652b6eb46c4cfd5a2a1f20afd7ee8a2773f097",
+      "comparison": "CRLF-normalized-LF-equivalent"
+    },
+    "prisma/seed.ts": {
+      "ciBlobSha256": "ba34b63dda0a5086cc01a04749b2ccf6c6aa431264934e2c7597c96ebdc1b7a5",
+      "currentSha256": "ba34b63dda0a5086cc01a04749b2ccf6c6aa431264934e2c7597c96ebdc1b7a5",
+      "comparison": "exact-bytes"
+    },
+    "public/equipment/manifest.json": {
+      "ciBlobSha256": "027e82502b8bcbeed6fb22cd77d738024b644d096b5905d36315d415a39a26ba",
+      "currentSha256": "027e82502b8bcbeed6fb22cd77d738024b644d096b5905d36315d415a39a26ba",
+      "comparison": "exact-bytes"
+    },
+    "rules/checks.md": {
+      "ciBlobSha256": "a07c00418b00a6f5d0c5af2244f8d075d109b71db8923880c63574d79b8b6dae",
+      "currentSha256": "a07c00418b00a6f5d0c5af2244f8d075d109b71db8923880c63574d79b8b6dae",
+      "comparison": "exact-bytes"
+    },
+    "rules/migration.md": {
+      "ciBlobSha256": "74ea923a43cf4dc3155f51c6b120cad5682dd7b325805ffddaed25d0398c5837",
+      "currentSha256": "74ea923a43cf4dc3155f51c6b120cad5682dd7b325805ffddaed25d0398c5837",
+      "comparison": "exact-bytes"
+    },
+    "rules/operacao.md": {
+      "ciBlobSha256": "9a7ad5744149d5df7eb6e8f7fc3f4bff0c4cbcbb4541107227604000a59b7259",
+      "currentSha256": "9a7ad5744149d5df7eb6e8f7fc3f4bff0c4cbcbb4541107227604000a59b7259",
+      "comparison": "exact-bytes"
+    },
+    "rules/restrictions.md": {
+      "ciBlobSha256": "fc2be03f970f219f328fb3b9d6693cf47956d8a2e2202af0ee1aeba81fa2143e",
+      "currentSha256": "fc2be03f970f219f328fb3b9d6693cf47956d8a2e2202af0ee1aeba81fa2143e",
+      "comparison": "exact-bytes"
+    },
+    "rules/secrets.md": {
+      "ciBlobSha256": "5efa59ac80f9b9e4d8c5f26f77aed9e27d1f40a07763559dc22155d732f91467",
+      "currentSha256": "5efa59ac80f9b9e4d8c5f26f77aed9e27d1f40a07763559dc22155d732f91467",
+      "comparison": "exact-bytes"
+    },
+    "rules/spec-flow.md": {
+      "ciBlobSha256": "12ce45c05bd03d7d13bd6eca47d375b221b0d70353c5de65322e5d5231c1ebb8",
+      "currentSha256": "12ce45c05bd03d7d13bd6eca47d375b221b0d70353c5de65322e5d5231c1ebb8",
+      "comparison": "exact-bytes"
+    },
+    "rules/tests.md": {
+      "ciBlobSha256": "76e30ef616126e3c90014305a9a8e4789688c46aa259150343805065e85b4864",
+      "currentSha256": "76e30ef616126e3c90014305a9a8e4789688c46aa259150343805065e85b4864",
+      "comparison": "exact-bytes"
+    },
+    "scripts/provisionar-professor.ts": {
+      "ciBlobSha256": "f157d88ea48d77e4a83e5e17bdabe8a3b39fcda497242637083997d2c3aa56bc",
+      "currentSha256": "f157d88ea48d77e4a83e5e17bdabe8a3b39fcda497242637083997d2c3aa56bc",
+      "comparison": "exact-bytes"
+    },
+    "skills/imagens-equipamentos/SKILL.md": {
+      "ciBlobSha256": "88be9b778b371305df322738967899adfeccb95a6879f4987254178c5444bf47",
+      "currentSha256": "88be9b778b371305df322738967899adfeccb95a6879f4987254178c5444bf47",
+      "comparison": "exact-bytes"
+    },
+    "skills/imagens-equipamentos/references/preparo.md": {
+      "ciBlobSha256": "a370772e7a3b26bb153a0bf689a032739ffa4cdc5b158c0f3f5fbb7729b3d3c3",
+      "currentSha256": "a370772e7a3b26bb153a0bf689a032739ffa4cdc5b158c0f3f5fbb7729b3d3c3",
+      "comparison": "exact-bytes"
+    },
+    "src/server/services/initial-data-target.test.ts": {
+      "ciBlobSha256": "3aba2dc561e19fac8714ae398893ea49553d7c6220f77c0d5e143c0c0958aea0",
+      "currentSha256": "3aba2dc561e19fac8714ae398893ea49553d7c6220f77c0d5e143c0c0958aea0",
+      "comparison": "exact-bytes"
+    },
+    "src/server/services/initial-data-target.ts": {
+      "ciBlobSha256": "8670789b94f20e2fcc2066cd47cb31eaf7ab2a040e05a9e499f0add1a3120950",
+      "currentSha256": "8670789b94f20e2fcc2066cd47cb31eaf7ab2a040e05a9e499f0add1a3120950",
+      "comparison": "exact-bytes"
+    },
+    "src/server/services/initial-data.test.ts": {
+      "ciBlobSha256": "f30ebbb48b98e055821e08902c0f5a9a668cc8c6ce78e0757d9696df1c0759fa",
+      "currentSha256": "f30ebbb48b98e055821e08902c0f5a9a668cc8c6ce78e0757d9696df1c0759fa",
+      "comparison": "exact-bytes"
+    },
+    "src/server/services/initial-data.ts": {
+      "ciBlobSha256": "d8613821f5c2cf1cb9f9f8d4c839f1e1e87172129dfc4aca5db0bd3747c00ff5",
+      "currentSha256": "d8613821f5c2cf1cb9f9f8d4c839f1e1e87172129dfc4aca5db0bd3747c00ff5",
+      "comparison": "exact-bytes"
+    },
+    "src/shared/equipment-images.test.ts": {
+      "ciBlobSha256": "10860500c09df2515a5720ad279c76e02954ccc91b945fddb95c680bbd9eab14",
+      "currentSha256": "10860500c09df2515a5720ad279c76e02954ccc91b945fddb95c680bbd9eab14",
+      "comparison": "exact-bytes"
+    },
+    "src/shared/equipment-images.ts": {
+      "ciBlobSha256": "3998ead2e590406e6ba761cff9f78da0c1307255044ef989b588d2ccf90ffe97",
+      "currentSha256": "3998ead2e590406e6ba761cff9f78da0c1307255044ef989b588d2ccf90ffe97",
+      "comparison": "exact-bytes"
+    },
+    "src/shared/equipment-inventory.json": {
+      "ciBlobSha256": "5ee9badb8a6e3e150e320a634ce621701a3fe5e3821d16307086a86a97517445",
+      "currentSha256": "5ee9badb8a6e3e150e320a634ce621701a3fe5e3821d16307086a86a97517445",
+      "comparison": "exact-bytes"
+    }
+  },
+  "currentSnapshotOnlyDocuments": [
+    "docs/evidencias/imagens-20261111.md"
+  ],
+  "authenticatedLogSha256": "cdf877d235c6223f11a93a6ea876d152555aaf9cd81edc3dfb437b4b2cba494d"
+}

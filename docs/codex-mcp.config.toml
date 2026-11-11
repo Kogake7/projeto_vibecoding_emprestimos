@@ -1,0 +1,7 @@
+# Adaptador Codex para o mesmo servidor definido em .mcp.json.
+# Sem tokens; autenticação OAuth fica no cliente, fora do repositório.
+[mcp_servers.supabase_projeto_leitura]
+url = "https://mcp.supabase.com/mcp?project_ref=elyivfytdbplvnfxhpqw&read_only=true&features=database,docs"
+enabled_tools = ["list_tables", "list_extensions", "list_migrations", "execute_sql", "search_docs"]
+startup_timeout_sec = 30
+tool_timeout_sec = 60

@@ -1,0 +1,3 @@
+A tentativa foi rejeitada com `code-mode host is disabled`. O executor não chegou a invocar `apply_patch`; portanto, não houve criação confirmada nem evidência de bloqueio pelo sandbox. Não tentei novamente.
+
+Ferramentas expostas: `functions.exec`, `functions.wait`, `functions.request_user_input`, `functions.request_user_input_async`, `clock.sleep` e `collaboration.{spawn_agent,followup_task,interrupt_agent,list_agents,send_message,wait_agent}`. `apply_patch` está declarada via executor, que estava indisponível.
