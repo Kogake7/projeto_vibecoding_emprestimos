@@ -194,7 +194,6 @@ export default function LoginScreen() {
               </p>
             </div>
 
-            <a href="/cadastro">Criar conta</a>
             <form
               method="post"
               className="flex flex-col gap-[22px]"
