@@ -34,7 +34,7 @@ function jpegDimensions(bytes: Buffer) {
   throw new Error("Quadro de dimensões JPEG não encontrado.");
 }
 
-describe("Spec 003 CA-10 — conjunto real de fotos Pixabay", () => {
+describe("Spec 002 CA-07 / Spec 003 CA-10 — conjunto real de fotos Pixabay", () => {
   it("contém os doze patrimônios, fotos e hashes distintos com revisão e proveniência", () => {
     expect(manifest.provider).toBe("pixabay");
     expect(manifest.images).toHaveLength(12);

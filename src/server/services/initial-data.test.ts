@@ -1,9 +1,11 @@
 import { randomUUID } from "node:crypto";
+import { PrismaClient } from "@prisma/client";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { createTestPostgres } from "../../test-support/postgres";
 import inventory from "../../shared/equipment-inventory.json";
 import {
   applyInitialInventory,
+  getVerifiedProfessorIdentity,
   provisionProfessorMembership,
   PROFESSOR_EMAIL,
 } from "./initial-data";
@@ -14,6 +16,11 @@ describe("Spec 002 — população idempotente em PostgreSQL real", () => {
 
   beforeAll(async () => {
     fixture = await createTestPostgres();
+    // Controlled external-provider fixture, only in this loopback disposable DB.
+    // These are not application schema changes or production migrations.
+    await fixture.db.$executeRaw`CREATE SCHEMA auth`;
+    await fixture.db
+      .$executeRaw`CREATE TABLE auth.users (id uuid PRIMARY KEY, email text)`;
   }, 60_000);
   afterAll(async () => {
     await fixture?.dispose();
@@ -64,9 +71,74 @@ describe("Spec 002 — população idempotente em PostgreSQL real", () => {
     expect(inventory.map((row) => row.assetTag)).toEqual(
       rows.map((row) => row.assetTag),
     );
-    expect(inventory.every((row) => row.search.trim().length > 0)).toBe(true);
+    // Independent oracle transcribed from the assignment; do not derive it from
+    // the implementation's inventory when changing the lookup terms.
+    expect(inventory.map((row) => [row.assetTag, row.search])).toEqual([
+      ["TI-0001", "laptop on white desk"],
+      ["TI-0002", "open laptop minimal desk"],
+      ["TI-0003", "laptop closeup keyboard"],
+      ["TI-0004", "closed laptop on table"],
+      ["TI-0005", "computer monitor on desk"],
+      ["TI-0006", "monitor screen office desk"],
+      ["TI-0007", "black computer screen"],
+      ["TI-0008", "hdmi cable"],
+      ["TI-0009", "usb cable white background"],
+      ["TI-0010", "ethernet cable"],
+      ["TI-0011", "webcam"],
+      ["TI-0012", "compact camera on table"],
+    ]);
     expect(await fixture.db.loan.count()).toBe(0);
     expect(await fixture.db.membership.count()).toBe(0);
+  });
+
+  it("CA-04 consulta Auth real exige UUID existente e email do professor antes do vínculo", async () => {
+    const expected = professor();
+    const otherId = randomUUID();
+    await fixture.db
+      .$executeRaw`INSERT INTO auth.users (id, email) VALUES (${expected.id}::uuid, ${expected.email}), (${otherId}::uuid, ${"fixture-other@example.test"})`;
+    const identity = await getVerifiedProfessorIdentity(
+      fixture.db,
+      expected.id,
+    );
+    expect(identity).toEqual(expected);
+    expect(await provisionProfessorMembership(fixture.db, identity)).toEqual({
+      userId: expected.id,
+      tenantId,
+      role: "ADMIN",
+    });
+    for (const id of [otherId, randomUUID()]) {
+      await expect(
+        getVerifiedProfessorIdentity(fixture.db, id),
+      ).rejects.toThrow("Identidade não encontrada");
+      expect(await fixture.db.membership.count({ where: { userId: id } })).toBe(
+        0,
+      );
+    }
+  });
+
+  it("CA-04 UUID inválido falha antes de executar SQL no provedor Auth", async () => {
+    const database = new PrismaClient({
+      datasourceUrl: fixture.url,
+      log: [{ emit: "event", level: "query" }],
+    });
+    let queries = 0;
+    database.$on("query", () => {
+      queries++;
+    });
+    try {
+      await database.$connect();
+      queries = 0;
+      await expect(
+        getVerifiedProfessorIdentity(database, "invalid-uuid"),
+      ).rejects.toThrow("Identidade não encontrada");
+      expect(queries).toBe(0);
+      await expect(
+        getVerifiedProfessorIdentity(database, randomUUID()),
+      ).rejects.toThrow("Identidade não encontrada");
+      expect(queries).toBeGreaterThan(0);
+    } finally {
+      await database.$disconnect();
+    }
   });
 
   it("CA-02 preserva IDs, estado operacional, empréstimos e auditoria na reexecução", async () => {

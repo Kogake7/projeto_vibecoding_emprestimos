@@ -64,6 +64,21 @@ export async function applyInitialInventory(db: PrismaClient) {
   );
 }
 
+/** Reads Supabase Auth's existing identity; never creates or changes Auth users. */
+export async function getVerifiedProfessorIdentity(
+  db: PrismaClient,
+  userId: string,
+) {
+  if (!z.uuid().safeParse(userId).success)
+    throw new Error("Identidade não encontrada.");
+  const identities = await db.$queryRaw<{ id: string; email: string }[]>`
+    SELECT id, email FROM auth.users
+    WHERE id = ${userId}::uuid AND lower(email) = ${PROFESSOR_EMAIL}
+  `;
+  if (identities.length !== 1) throw new Error("Identidade não encontrada.");
+  return identities[0];
+}
+
 export async function provisionProfessorMembership(
   db: PrismaClient,
   verifiedIdentity: { id: string; email: string },
